@@ -33,7 +33,7 @@ class PoliceSpider(scrapy.Spider):
         next_page_link = next_page_link_selector.xpath('@href').get()
 
         if next_page_link is not None:
-            next_page_url = self.start_urls[0] + next_page_link
+            next_page_url = response.urljoin(next_page_link)
             print(f"Next button was pressed!, next url is {next_page_url}")
             yield scrapy.Request(next_page_url, meta=dict(
                 playwright = True,
