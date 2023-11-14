@@ -7,7 +7,8 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 import re
-from scrapy.exceptions import DropItem
+import psycopg2
+from scrapy.exceptions import NotConfigured
 
 
 class DepartmentNameFormattingPipeline:
@@ -85,3 +86,62 @@ class ProcessPopulationServedPipeline(object):
         else:
             # Return None if the pattern does not match
             return None
+
+class PostgresPipeline(object):
+    def __init__(self, db_uri):
+        self.db_uri = db_uri
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        db_uri = crawler.settings.get('DB_URI')
+        if not db_uri:
+            raise NotConfigured
+        return cls(db_uri)
+
+    def open_spider(self, spider):
+        self.conn = psycopg2.connect(self.db_uri)
+        self.cur = self.conn.cursor()
+        self.cur.execute("""
+            CREATE TABLE IF NOT EXISTS agencies (
+                id SERIAL PRIMARY KEY,
+                department_name TEXT,
+                country TEXT,
+                address_1 TEXT,
+                address_2 TEXT,
+                city TEXT,
+                state TEXT,
+                zip_code TEXT,
+                county TEXT,
+                phone_ TEXT,
+                fax_ TEXT,
+                website TEXT,
+                type TEXT,
+                population_served INT,
+                number_of_officers INT,
+                directory_url TEXT
+            )
+        """)
+        self.conn.commit()
+
+    def close_spider(self, spider):
+        self.cur.close()
+        self.conn.close()
+
+    def process_item(self, item, spider):
+        self.cur.execute("""
+            INSERT INTO agencies (
+                department_name, country, address_1, address_2, city, 
+                state, zip_code, county, phone_, fax_, website, type, 
+                population_served, number_of_officers, directory_url
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """, (
+            item.get('department_name'), item.get('country'),
+            item.get('address_1'), item.get('address_2'), item.get('city'),
+            item.get('state'), item.get('zip_code'), item.get('county'),
+            item.get('phone_'), item.get('fax_'), item.get('website'),
+            item.get('type'), item.get('population_served'),
+            item.get('number_of_officers'), item.get('directory_url')
+        ))
+        self.conn.commit()
+        return item
+
