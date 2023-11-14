@@ -1,0 +1,1810 @@
+2023-11-14 10:35:57 [scrapy.utils.log] INFO: Scrapy 2.11.0 started (bot: police1)
+2023-11-14 10:35:57 [scrapy.utils.log] INFO: Versions: lxml 4.9.3.0, libxml2 2.10.3, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.10.12 (main, Jun 11 2023, 05:26:28) [GCC 11.4.0], pyOpenSSL 23.3.0 (OpenSSL 3.1.4 24 Oct 2023), cryptography 41.0.5, Platform Linux-6.2.0-36-generic-x86_64-with-glibc2.35
+2023-11-14 10:35:57 [scrapy.addons] INFO: Enabled addons:
+[]
+2023-11-14 10:35:57 [asyncio] DEBUG: Using selector: EpollSelector
+2023-11-14 10:35:57 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-11-14 10:35:57 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2023-11-14 10:35:57 [scrapy.extensions.telnet] INFO: Telnet Password: 4125fa42485d5ff0
+2023-11-14 10:35:57 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapeops_scrapy.extension.ScrapeOpsMonitor']
+2023-11-14 10:35:57 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'police1',
+ 'CONCURRENT_REQUESTS_PER_DOMAIN': 16,
+ 'DOWNLOAD_DELAY': 3,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy_output.log',
+ 'NEWSPIDER_MODULE': 'police1.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['police1.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-11-14 10:35:57 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): headers.scrapeops.io:443
+2023-11-14 10:35:58 [urllib3.connectionpool] DEBUG: https://headers.scrapeops.io:443 "GET /v1/user-agents?api_key=00c6f511-0874-4d6e-8265-7936598cff69&num_results=25 HTTP/1.1" 200 None
+2023-11-14 10:35:58 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'police1.middlewares.ScrapeOpsFakeUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapeops_scrapy.middleware.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-11-14 10:35:58 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-11-14 10:35:58 [scrapy.middleware] INFO: Enabled item pipelines:
+['police1.pipelines.DepartmentNameFormattingPipeline',
+ 'police1.pipelines.PhoneNumberFormattingPipeline',
+ 'police1.pipelines.FaxNumberFormattingPipeline',
+ 'police1.pipelines.ConvertOfficersToIntegerPipeline',
+ 'police1.pipelines.ProcessPopulationServedPipeline',
+ 'police1.pipelines.PostgresPipeline']
+2023-11-14 10:35:58 [scrapy.core.engine] INFO: Spider opened
+2023-11-14 10:35:58 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2023-11-14 10:35:58 [root] INFO: Error: Error in error logger
+2023-11-14 10:35:58 [root] INFO: 'LogRecord' object has no attribute 'message'
+Traceback (most recent call last):
+  File "/home/jake/Documents/Scrapers/police1scraper/venv/lib/python3.10/site-packages/scrapy/crawler.py", line 160, in crawl
+    yield self.engine.open_spider(self.spider, start_requests)
+psycopg2.OperationalError: connection to server at "wee-gopher-13423.5xj.cockroachlabs.cloud" (35.184.49.18), port 26257 failed: root certificate file "/home/jake/.postgresql/root.crt" does not exist
+Either provide the file, use the system's trusted roots with sslrootcert=system, or change sslmode to disable server certificate verification.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jake/Documents/Scrapers/police1scraper/venv/lib/python3.10/site-packages/scrapeops_scrapy/core/error_logger.py", line 138, in emit
+    errorMessage = record.message
+AttributeError: 'LogRecord' object has no attribute 'message'
+2023-11-14 10:35:58 [scrapy.core.engine] ERROR: Scraper close failure
+Traceback (most recent call last):
+  File "/home/jake/Documents/Scrapers/police1scraper/venv/lib/python3.10/site-packages/scrapy/crawler.py", line 160, in crawl
+    yield self.engine.open_spider(self.spider, start_requests)
+psycopg2.OperationalError: connection to server at "wee-gopher-13423.5xj.cockroachlabs.cloud" (35.184.49.18), port 26257 failed: root certificate file "/home/jake/.postgresql/root.crt" does not exist
+Either provide the file, use the system's trusted roots with sslrootcert=system, or change sslmode to disable server certificate verification.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jake/Documents/Scrapers/police1scraper/venv/lib/python3.10/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jake/Documents/Scrapers/police1scraper/police1/police1/pipelines.py", line 127, in close_spider
+    self.cur.close()
+AttributeError: 'PostgresPipeline' object has no attribute 'cur'
+2023-11-14 10:35:58 [root] INFO: Error: Error in error logger
+2023-11-14 10:35:58 [root] INFO: 'LogRecord' object has no attribute 'message'
+Traceback (most recent call last):
+  File "/home/jake/Documents/Scrapers/police1scraper/venv/lib/python3.10/site-packages/scrapy/crawler.py", line 160, in crawl
+    yield self.engine.open_spider(self.spider, start_requests)
+psycopg2.OperationalError: connection to server at "wee-gopher-13423.5xj.cockroachlabs.cloud" (35.184.49.18), port 26257 failed: root certificate file "/home/jake/.postgresql/root.crt" does not exist
+Either provide the file, use the system's trusted roots with sslrootcert=system, or change sslmode to disable server certificate verification.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jake/Documents/Scrapers/police1scraper/venv/lib/python3.10/site-packages/scrapeops_scrapy/core/error_logger.py", line 138, in emit
+    errorMessage = record.message
+AttributeError: 'LogRecord' object has no attribute 'message'
+2023-11-14 10:35:58 [scrapy.utils.signal] ERROR: Error caught on signal handler: <bound method CoreStats.spider_closed of <scrapy.extensions.corestats.CoreStats object at 0x7f9b1129fc10>>
+Traceback (most recent call last):
+  File "/home/jake/Documents/Scrapers/police1scraper/venv/lib/python3.10/site-packages/scrapy/crawler.py", line 160, in crawl
+    yield self.engine.open_spider(self.spider, start_requests)
+psycopg2.OperationalError: connection to server at "wee-gopher-13423.5xj.cockroachlabs.cloud" (35.184.49.18), port 26257 failed: root certificate file "/home/jake/.postgresql/root.crt" does not exist
+Either provide the file, use the system's trusted roots with sslrootcert=system, or change sslmode to disable server certificate verification.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jake/Documents/Scrapers/police1scraper/venv/lib/python3.10/site-packages/scrapy/utils/defer.py", line 348, in maybeDeferred_coro
+    result = f(*args, **kw)
+  File "/home/jake/Documents/Scrapers/police1scraper/venv/lib/python3.10/site-packages/pydispatch/robustapply.py", line 55, in robustApply
+    return receiver(*arguments, **named)
+  File "/home/jake/Documents/Scrapers/police1scraper/venv/lib/python3.10/site-packages/scrapy/extensions/corestats.py", line 30, in spider_closed
+    elapsed_time = finish_time - self.start_time
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'NoneType'
+2023-11-14 10:35:58 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'log_count/DEBUG': 5, 'log_count/ERROR': 2, 'log_count/INFO': 12}
+2023-11-14 10:35:58 [scrapy.core.engine] INFO: Spider closed (shutdown)
+2023-11-14 10:35:58 [root] INFO: Error: Error in error logger
+2023-11-14 10:35:58 [root] INFO: 'LogRecord' object has no attribute 'message'
+Traceback (most recent call last):
+  File "/home/jake/Documents/Scrapers/police1scraper/venv/lib/python3.10/site-packages/scrapeops_scrapy/core/error_logger.py", line 138, in emit
+    errorMessage = record.message
+AttributeError: 'LogRecord' object has no attribute 'message'
+2023-11-14 10:35:58 [twisted] CRITICAL: Unhandled error in Deferred:
+2023-11-14 10:35:58 [root] INFO: Error: Error in error logger
+2023-11-14 10:35:58 [root] INFO: 'LogRecord' object has no attribute 'message'
+Traceback (most recent call last):
+  File "/home/jake/Documents/Scrapers/police1scraper/venv/lib/python3.10/site-packages/scrapeops_scrapy/core/error_logger.py", line 138, in emit
+    errorMessage = record.message
+AttributeError: 'LogRecord' object has no attribute 'message'
+2023-11-14 10:35:58 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/home/jake/Documents/Scrapers/police1scraper/venv/lib/python3.10/site-packages/twisted/internet/defer.py", line 1697, in _inlineCallbacks
+    result = context.run(gen.send, result)
+  File "/home/jake/Documents/Scrapers/police1scraper/venv/lib/python3.10/site-packages/scrapy/crawler.py", line 160, in crawl
+    yield self.engine.open_spider(self.spider, start_requests)
+psycopg2.OperationalError: connection to server at "wee-gopher-13423.5xj.cockroachlabs.cloud" (35.184.49.18), port 26257 failed: root certificate file "/home/jake/.postgresql/root.crt" does not exist
+Either provide the file, use the system's trusted roots with sslrootcert=system, or change sslmode to disable server certificate verification.
+
+2023-11-14 10:38:27 [scrapy.utils.log] INFO: Scrapy 2.11.0 started (bot: police1)
+2023-11-14 10:38:27 [scrapy.utils.log] INFO: Versions: lxml 4.9.3.0, libxml2 2.10.3, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.10.12 (main, Jun 11 2023, 05:26:28) [GCC 11.4.0], pyOpenSSL 23.3.0 (OpenSSL 3.1.4 24 Oct 2023), cryptography 41.0.5, Platform Linux-6.2.0-36-generic-x86_64-with-glibc2.35
+2023-11-14 10:38:27 [scrapy.addons] INFO: Enabled addons:
+[]
+2023-11-14 10:38:27 [asyncio] DEBUG: Using selector: EpollSelector
+2023-11-14 10:38:27 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2023-11-14 10:38:27 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2023-11-14 10:38:27 [scrapy.extensions.telnet] INFO: Telnet Password: a8468166b63df04f
+2023-11-14 10:38:29 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapeops_scrapy.extension.ScrapeOpsMonitor']
+2023-11-14 10:38:29 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'police1',
+ 'CONCURRENT_REQUESTS_PER_DOMAIN': 16,
+ 'DOWNLOAD_DELAY': 3,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy_output.log',
+ 'NEWSPIDER_MODULE': 'police1.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['police1.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2023-11-14 10:38:30 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): headers.scrapeops.io:443
+2023-11-14 10:38:31 [urllib3.connectionpool] DEBUG: https://headers.scrapeops.io:443 "GET /v1/user-agents?api_key=00c6f511-0874-4d6e-8265-7936598cff69&num_results=25 HTTP/1.1" 200 None
+2023-11-14 10:38:32 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'police1.middlewares.ScrapeOpsFakeUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapeops_scrapy.middleware.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2023-11-14 10:38:32 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2023-11-14 10:38:33 [scrapy.middleware] INFO: Enabled item pipelines:
+['police1.pipelines.DepartmentNameFormattingPipeline',
+ 'police1.pipelines.PhoneNumberFormattingPipeline',
+ 'police1.pipelines.FaxNumberFormattingPipeline',
+ 'police1.pipelines.ConvertOfficersToIntegerPipeline',
+ 'police1.pipelines.ProcessPopulationServedPipeline',
+ 'police1.pipelines.PostgresPipeline']
+2023-11-14 10:38:33 [scrapy.core.engine] INFO: Spider opened
+2023-11-14 10:38:34 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2023-11-14 10:38:34 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:38:35 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/setup/ HTTP/1.1" 200 None
+2023-11-14 10:38:35 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2023-11-14 10:38:35 [scrapy-playwright] INFO: Starting download handler
+2023-11-14 10:38:35 [scrapy-playwright] INFO: Starting download handler
+2023-11-14 10:38:49 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:38:50 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/stats/ HTTP/1.1" 200 108
+2023-11-14 10:38:50 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:38:51 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/normalizer/domain/?domain=police1.com HTTP/1.1" 200 242
+2023-11-14 10:38:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/robots.txt> (referer: None)
+2023-11-14 10:38:54 [scrapy-playwright] INFO: Launching browser chromium
+2023-11-14 10:38:58 [scrapy-playwright] INFO: Browser chromium launched
+2023-11-14 10:38:58 [scrapy-playwright] DEBUG: Browser context started: 'default' (persistent=False, remote=False)
+2023-11-14 10:39:00 [scrapy-playwright] DEBUG: [Context=default] New page created, page count is 1 (1 for all contexts)
+2023-11-14 10:39:00 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.police1.com/law-enforcement-directory/search> (resource type: document)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <301 https://www.police1.com/law-enforcement-directory/search> (location: /law-enforcement-directory/search/)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.police1.com/law-enforcement-directory/search/> (resource type: document)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.police1.com/law-enforcement-directory/search/>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Rokkitt/font/rokkitt-v19-latin-600.woff2?v=2> (resource type: font)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-regular.woff2?v=2> (resource type: font)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-italic.woff2?v=2> (resource type: font)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-700.woff2?v=2> (resource type: font)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-regular.woff2?v=2> (resource type: font)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-500.woff2?v=2> (resource type: font)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/performance.js> (resource type: script)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css> (resource type: stylesheet)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://js.sentry-cdn.com/ca0147b59f9f46d9bac27e7727ef0ca6.min.js> (resource type: script)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://browser.sentry-cdn.com/5.13.2/dedupe.min.js> (resource type: script)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head-sync-noncritical.js> (resource type: script)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/dfp.js> (resource type: script)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo-white-lexipol.svg> (resource type: image)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo.svg> (resource type: image)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://browser.sentry-cdn.com/5.13.2/dedupe.min.js>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://js.sentry-cdn.com/ca0147b59f9f46d9bac27e7727ef0ca6.min.js>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-regular.woff2?v=2>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-italic.woff2?v=2>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/dfp.js>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Rokkitt/font/rokkitt-v19-latin-600.woff2?v=2>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head-sync-noncritical.js>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-700.woff2?v=2>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-500.woff2?v=2>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-regular.woff2?v=2>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/performance.js>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.google-analytics.com/collect> (resource type: xhr)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <HEAD https://googleads.g.doubleclick.net/pagead/id> (resource type: fetch)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head.js> (resource type: script)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/search.js> (resource type: script)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/cub-widget.0.30.x.js> (resource type: script)
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo-white-lexipol.svg>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo.svg>
+2023-11-14 10:39:01 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://browser.sentry-cdn.com/5.30.0/bundle.min.js> (resource type: script)
+2023-11-14 10:39:02 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/fonts/fontello/font/fontello.woff2> (resource type: font, referrer: https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css)
+2023-11-14 10:39:02 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/search.js>
+2023-11-14 10:39:02 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head.js>
+2023-11-14 10:39:02 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://browser.sentry-cdn.com/5.30.0/bundle.min.js>
+2023-11-14 10:39:02 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.google-analytics.com/collect>
+2023-11-14 10:39:02 [scrapy-playwright] DEBUG: [Context=default] Response: <302 https://googleads.g.doubleclick.net/pagead/id> (location: https://googleads.g.doubleclick.net/pagead/id?slf_rd=1)
+2023-11-14 10:39:02 [scrapy-playwright] DEBUG: [Context=default] Request: <HEAD https://googleads.g.doubleclick.net/pagead/id?slf_rd=1> (resource type: fetch)
+2023-11-14 10:39:02 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/cub-widget.0.30.x.js>
+2023-11-14 10:39:02 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/fonts/fontello/font/fontello.woff2>
+2023-11-14 10:39:02 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://googleads.g.doubleclick.net/pagead/id?slf_rd=1>
+2023-11-14 10:39:02 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.police1.com/stats?js=1&ga=1&ads_request=1&head=1&sentry=1&head_sync=1&sentry_config=1&ads_script=1> (resource type: xhr, referrer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2F&cub_xdm_c=cub466038&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq> (resource type: document)
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/static/css/FontAwesome.css> (resource type: stylesheet)
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.police1.com/stats?js=1&ga=1&ads_request=1&head=1&sentry=1&head_sync=1&sentry_config=1&ads_script=1>
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/static/css/FontAwesome.css>
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Request: <POST https://go.lexipol.com/api/impressions/> (resource type: ping)
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2F&cub_xdm_c=cub466038&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq>
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/v1/sites/?domain=www.police1.com&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2F> (resource type: xhr, referrer: https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2F&cub_xdm_c=cub466038&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq)
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://go.lexipol.com/api/impressions/>
+2023-11-14 10:39:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/search> (referer: None) ['playwright']
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://id.lexipol.com/v1/sites/?domain=www.police1.com&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2F>
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/v1/sites/?domain=%7Breferer%7D&expand=mailinglists__mailinglist%2Cvendor_lead_form%2Csiteplans__plan__product%2Csitebenefits__benefit%2Csso_settings&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2F> (resource type: xhr, referrer: https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2F&cub_xdm_c=cub466038&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq)
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/static/vendor/iubenda/ccpa/stub.js> (resource type: script)
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/cs/iubenda_cs.js?referer=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2F> (resource type: script)
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/static/vendor/iubenda/ccpa/stub.js>
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://id.lexipol.com/cs/iubenda_cs.js?referer=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2F>
+2023-11-14 10:39:03 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/static/vendor/iubenda/core-en_1.45.1.js> (resource type: script)
+2023-11-14 10:39:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/hobbs-police-hobbs-NM-f54dfdffe164aee1/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/hobbs-police-hobbs-NM-f54dfdffe164aee1/>
+{'address_1': '300 N Turner St',
+ 'city': 'Hobbs',
+ 'country': 'United States',
+ 'county': 'New Mexico',
+ 'department_name': 'Hobbs Police',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/hobbs-police-hobbs-NM-f54dfdffe164aee1/',
+ 'number_of_officers': 107,
+ 'phone_': '(575)-397-9284',
+ 'population_served': 50000,
+ 'state': 'New Mexico',
+ 'type': 'Police Departments',
+ 'website': 'http://hobbsnm.org',
+ 'zip_code': '88240'}
+2023-11-14 10:39:04 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:39:05 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/stats/ HTTP/1.1" 200 108
+2023-11-14 10:39:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/missouri-state-park-rangers-jefferson-city-MO-839055591288df51/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/missouri-state-park-rangers-jefferson-city-MO-839055591288df51/>
+{'address_1': '1659 E. Elm Street',
+ 'city': 'Jefferson City',
+ 'country': 'United States',
+ 'county': 'Cole',
+ 'department_name': 'Missouri State Park Rangers',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/missouri-state-park-rangers-jefferson-city-MO-839055591288df51/',
+ 'number_of_officers': 46,
+ 'phone_': '(573)-751-9188',
+ 'state': 'Missouri',
+ 'type': 'Police Departments',
+ 'website': 'https://mostateparks.com/rangers',
+ 'zip_code': '65101'}
+2023-11-14 10:39:11 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/westerville-police-department-westerville-OH-211944115372d397/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:11 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/westerville-police-department-westerville-OH-211944115372d397/>
+{'address_1': '29 S. State St',
+ 'city': 'Westerville',
+ 'country': 'United States',
+ 'county': 'OH',
+ 'department_name': 'Westerville Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/westerville-police-department-westerville-OH-211944115372d397/',
+ 'number_of_officers': 76,
+ 'phone_': '(614)-901-6450',
+ 'population_served': 40000,
+ 'state': 'Ohio',
+ 'type': 'Police Departments',
+ 'website': 'https://www.westerville.org/',
+ 'zip_code': '43081'}
+2023-11-14 10:39:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/sheriffs-departments/trumbull-county-sheriffs-department-oh-warren-OH-d12eb5a9973e3240/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/sheriffs-departments/trumbull-county-sheriffs-department-oh-warren-OH-d12eb5a9973e3240/>
+{'address_1': '605 Panther Ave.',
+ 'city': 'Warren',
+ 'country': 'United States',
+ 'county': 'Trumbull',
+ 'department_name': 'Trumbull County Sheriffs Department, OH',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/sheriffs-departments/trumbull-county-sheriffs-department-oh-warren-OH-d12eb5a9973e3240/',
+ 'phone_': '(330)-675-2508',
+ 'state': 'Ohio',
+ 'type': 'Sheriffs Departments',
+ 'website': 'http://sheriff.co.trumbull.oh.us/',
+ 'zip_code': '44483'}
+2023-11-14 10:39:19 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:39:20 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/stats/ HTTP/1.1" 200 108
+2023-11-14 10:39:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/piedmont-company-police-department-nc-greensboro-NC-qlMbiss0vzOtvVoJ/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:20 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/piedmont-company-police-department-nc-greensboro-NC-qlMbiss0vzOtvVoJ/>
+{'address_1': '4004-K Spring Garden St',
+ 'city': 'Greensboro',
+ 'country': 'United States',
+ 'county': 'Randolph',
+ 'department_name': 'Piedmont Company Police Department, NC',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/piedmont-company-police-department-nc-greensboro-NC-qlMbiss0vzOtvVoJ/',
+ 'phone_': '(336)-223-4940',
+ 'state': 'North Carolina',
+ 'type': 'Police Departments',
+ 'website': 'http://www.piedmontpatrol.com',
+ 'zip_code': '27407'}
+2023-11-14 10:39:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/fairfield-police-department-fairfield-CT-1d0ee7f756068ffe/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:23 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/fairfield-police-department-fairfield-CT-1d0ee7f756068ffe/>
+{'address_1': '100 Reef Rd',
+ 'city': 'Fairfield',
+ 'country': 'United States',
+ 'county': 'Fairfield',
+ 'department_name': 'Fairfield Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/fairfield-police-department-fairfield-CT-1d0ee7f756068ffe/',
+ 'fax_': '(203)-254-4868',
+ 'number_of_officers': 108,
+ 'phone_': '(203)-254-4808',
+ 'population_served': 59000,
+ 'state': 'Connecticut',
+ 'type': 'Police Departments',
+ 'website': 'https://www.fpdct.com/',
+ 'zip_code': '06824'}
+2023-11-14 10:39:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/sheriffs-departments/mckenzie-county-sheriffs-office-watford-city-ND-iRgCzKv9JEkke449/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/sheriffs-departments/mckenzie-county-sheriffs-office-watford-city-ND-iRgCzKv9JEkke449/>
+{'address_1': '1201 12th st se Ste B',
+ 'city': 'Watford City',
+ 'country': 'United States',
+ 'county': 'McKenzie',
+ 'department_name': 'McKenzie County Sheriffs Office',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/sheriffs-departments/mckenzie-county-sheriffs-office-watford-city-ND-iRgCzKv9JEkke449/',
+ 'fax_': '(701)-842-6455',
+ 'number_of_officers': 37,
+ 'phone_': '(701)-444-3654',
+ 'population_served': 13700,
+ 'state': 'North Dakota',
+ 'type': 'Sheriffs Departments',
+ 'website': 'https://www.mckenziesheriff.net/',
+ 'zip_code': '58854'}
+2023-11-14 10:39:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/kipton-police-department-kipton-OH-0FdUau4bWDb6tQ4K/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:31 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/kipton-police-department-kipton-OH-0FdUau4bWDb6tQ4K/>
+{'address_1': '299 State Street',
+ 'address_2': 'PO Box 52',
+ 'city': 'Kipton',
+ 'country': 'United States',
+ 'county': 'Lorain',
+ 'department_name': 'Kipton Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/kipton-police-department-kipton-OH-0FdUau4bWDb6tQ4K/',
+ 'fax_': '(440)-774-8097',
+ 'number_of_officers': 6,
+ 'phone_': '(440)-775-2525',
+ 'population_served': 300,
+ 'state': 'Ohio',
+ 'type': 'Police Departments',
+ 'zip_code': '44049'}
+2023-11-14 10:39:34 [scrapy.extensions.logstats] INFO: Crawled 10 pages (at 10 pages/min), scraped 8 items (at 8 items/min)
+2023-11-14 10:39:34 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:39:35 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/stats/ HTTP/1.1" 200 108
+2023-11-14 10:39:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/campus-police-department/nys-office-of-mental-health-police-creedmoor-psychiatric-center-queens-village-NY-QbUtwo6nMdZfNvOD/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:35 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/campus-police-department/nys-office-of-mental-health-police-creedmoor-psychiatric-center-queens-village-NY-QbUtwo6nMdZfNvOD/>
+{'address_1': '79-25 Winchester Boulevard',
+ 'address_2': 'Bldg. 40',
+ 'city': 'Queens Village',
+ 'country': 'United States',
+ 'county': 'Queens',
+ 'department_name': 'NYS Office of Mental Health Police',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/campus-police-department/nys-office-of-mental-health-police-creedmoor-psychiatric-center-queens-village-NY-QbUtwo6nMdZfNvOD/',
+ 'fax_': '(718)-264-4123',
+ 'number_of_officers': 40,
+ 'phone_': '(718)-264-5700',
+ 'population_served': None,
+ 'state': 'New York',
+ 'type': 'Campus Police Department',
+ 'website': 'https://www.omh.ny.gov/',
+ 'zip_code': '11427-2199'}
+2023-11-14 10:39:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/sheriffs-departments/kearney-county-sheriffs-office-nirma-minden-NE-f41414a12208f6a2/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/sheriffs-departments/kearney-county-sheriffs-office-nirma-minden-NE-f41414a12208f6a2/>
+{'address_1': '246 N Colorado Ave',
+ 'city': 'Minden',
+ 'country': 'United States',
+ 'county': 'Kearney',
+ 'department_name': "Kearney County Sheriff's Office",
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/sheriffs-departments/kearney-county-sheriffs-office-nirma-minden-NE-f41414a12208f6a2/',
+ 'number_of_officers': 7,
+ 'phone_': '(308)-832-2805',
+ 'population_served': 7000,
+ 'state': 'Nebraska',
+ 'type': 'Sheriffs Departments',
+ 'website': 'https://kearneycounty.ne.gov/webpages/sheriff/sheriff.html',
+ 'zip_code': '68959'}
+2023-11-14 10:39:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/sheriffs-departments/lowndes-county-sheriffs-department-columbus-MS-d35889fcbe0ba609/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/sheriffs-departments/lowndes-county-sheriffs-department-columbus-MS-d35889fcbe0ba609/>
+{'address_1': '527 MLK Jr. Drive South',
+ 'city': 'Columbus',
+ 'country': 'United States',
+ 'county': 'Lowndes',
+ 'department_name': "Lowndes County Sheriff's Department",
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/sheriffs-departments/lowndes-county-sheriffs-department-columbus-MS-d35889fcbe0ba609/',
+ 'fax_': None,
+ 'number_of_officers': None,
+ 'phone_': None,
+ 'state': 'Mississippi',
+ 'type': 'Sheriffs Departments',
+ 'zip_code': '39701'}
+2023-11-14 10:39:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/sheriffs-departments/manitowoc-county-sheriffs-office-wi-manitowoc-WI-c6cb14d12a938fd0/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/sheriffs-departments/manitowoc-county-sheriffs-office-wi-manitowoc-WI-c6cb14d12a938fd0/>
+{'address_1': '1025 S 9th St',
+ 'city': 'Manitowoc',
+ 'country': 'United States',
+ 'county': 'Manitowoc',
+ 'department_name': "Manitowoc County Sheriff's Office (WI)",
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/sheriffs-departments/manitowoc-county-sheriffs-office-wi-manitowoc-WI-c6cb14d12a938fd0/',
+ 'number_of_officers': 50,
+ 'phone_': '(920)-683-4200',
+ 'population_served': 79175,
+ 'state': 'Wisconsin',
+ 'type': 'Sheriffs Departments',
+ 'website': 'http://www.co.manitowoc.wi.us/departments/sheriff/',
+ 'zip_code': '54220'}
+2023-11-14 10:39:49 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:39:50 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/stats/ HTTP/1.1" 200 108
+2023-11-14 10:39:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/waukegan-police-department-waukegan-IL-P2Qrye9a3rUWJ8P2/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:51 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/waukegan-police-department-waukegan-IL-P2Qrye9a3rUWJ8P2/>
+{'address_1': '101 N. West St.',
+ 'city': 'Waukegan',
+ 'country': 'United States',
+ 'county': 'USA',
+ 'department_name': 'Waukegan Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/waukegan-police-department-waukegan-IL-P2Qrye9a3rUWJ8P2/',
+ 'fax_': '(847)-360-0587',
+ 'number_of_officers': 151,
+ 'phone_': '(847)-599-2608',
+ 'population_served': 87729,
+ 'state': 'Illinois',
+ 'type': 'Police Departments',
+ 'website': 'https://www.waukeganil.gov/',
+ 'zip_code': '60085'}
+2023-11-14 10:39:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/colorado-rangers-cler-fort-lupton-CO-f3WCQT65ISqcd7kZ/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/colorado-rangers-cler-fort-lupton-CO-f3WCQT65ISqcd7kZ/>
+{'address_1': '330 Park Avenue',
+ 'city': 'Fort Lupton',
+ 'country': 'United States',
+ 'county': 'Adams',
+ 'department_name': 'Colorado Rangers (CLER)',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/colorado-rangers-cler-fort-lupton-CO-f3WCQT65ISqcd7kZ/',
+ 'number_of_officers': 100,
+ 'phone_': '(303)-502-2671',
+ 'population_served': 1000000,
+ 'state': 'Colorado',
+ 'type': 'Police Departments',
+ 'website': 'https://ColoradoRangers.org',
+ 'zip_code': '80621'}
+2023-11-14 10:39:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/sheriffs-departments/ocean-county-sheriffs-office-toms-river-NJ-d44efe319e8996db/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:39:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/sheriffs-departments/ocean-county-sheriffs-office-toms-river-NJ-d44efe319e8996db/>
+{'address_1': '120 Hooper Ave',
+ 'city': 'Toms River',
+ 'country': 'United States',
+ 'county': 'Ocean',
+ 'department_name': "Ocean County Sheriff's Office",
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/sheriffs-departments/ocean-county-sheriffs-office-toms-river-NJ-d44efe319e8996db/',
+ 'number_of_officers': 140,
+ 'phone_': '(732)-929-2044',
+ 'population_served': 600000,
+ 'state': 'New Jersey',
+ 'type': 'Sheriffs Departments',
+ 'website': 'http://www.co.ocean.nj.us/OCsheriff/',
+ 'zip_code': '08753'}
+2023-11-14 10:40:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/sheriffs-departments/wood-county-sheriffs-office-bowling-green-OH-f8bfc30d86feb6f9/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:40:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/sheriffs-departments/wood-county-sheriffs-office-bowling-green-OH-f8bfc30d86feb6f9/>
+{'address_1': '1960 East Gypsy Lane Road',
+ 'city': 'Bowling Green',
+ 'country': 'United States',
+ 'county': 'Wood',
+ 'department_name': "Wood County Sheriff's Office",
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/sheriffs-departments/wood-county-sheriffs-office-bowling-green-OH-f8bfc30d86feb6f9/',
+ 'fax_': '(419)-354-9086',
+ 'phone_': '(419)-354-9001',
+ 'population_served': 130500,
+ 'state': 'Ohio',
+ 'type': 'Sheriffs Departments',
+ 'website': 'http://woodcountysheriff.com/',
+ 'zip_code': '43402'}
+2023-11-14 10:40:04 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:40:05 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/stats/ HTTP/1.1" 200 108
+2023-11-14 10:40:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/criminal-justice-training-authority/mercer-county-crisis-intervention-team-mercer-PA-WsagsuG9aAbEMK17/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:40:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/criminal-justice-training-authority/mercer-county-crisis-intervention-team-mercer-PA-WsagsuG9aAbEMK17/>
+{'address_1': '105 Courthouse',
+ 'city': 'Mercer',
+ 'country': 'United States',
+ 'county': 'Mercer',
+ 'department_name': 'Mercer County Crisis Intervention Team',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/criminal-justice-training-authority/mercer-county-crisis-intervention-team-mercer-PA-WsagsuG9aAbEMK17/',
+ 'number_of_officers': 60,
+ 'phone_': '(724)-456-7785',
+ 'population_served': None,
+ 'state': 'Pennsylvania',
+ 'type': 'Criminal Justice Training Authority',
+ 'zip_code': '16137'}
+2023-11-14 10:40:11 [scrapy-playwright] DEBUG: [Context=default] New page created, page count is 1 (1 for all contexts)
+2023-11-14 10:40:11 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.police1.com/law-enforcement-directory/search/page-2/> (resource type: document)
+2023-11-14 10:40:12 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.police1.com/law-enforcement-directory/search/page-2/>
+2023-11-14 10:40:12 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Rokkitt/font/rokkitt-v19-latin-600.woff2?v=2> (resource type: font)
+2023-11-14 10:40:12 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-regular.woff2?v=2> (resource type: font)
+2023-11-14 10:40:13 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-italic.woff2?v=2> (resource type: font)
+2023-11-14 10:40:13 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-700.woff2?v=2> (resource type: font)
+2023-11-14 10:40:13 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-regular.woff2?v=2> (resource type: font)
+2023-11-14 10:40:13 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-500.woff2?v=2> (resource type: font)
+2023-11-14 10:40:13 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/performance.js> (resource type: script)
+2023-11-14 10:40:13 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css> (resource type: stylesheet)
+2023-11-14 10:40:13 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://js.sentry-cdn.com/ca0147b59f9f46d9bac27e7727ef0ca6.min.js> (resource type: script)
+2023-11-14 10:40:13 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://browser.sentry-cdn.com/5.13.2/dedupe.min.js> (resource type: script)
+2023-11-14 10:40:13 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head-sync-noncritical.js> (resource type: script)
+2023-11-14 10:40:13 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/dfp.js> (resource type: script)
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo-white-lexipol.svg> (resource type: image)
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo.svg> (resource type: image)
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Rokkitt/font/rokkitt-v19-latin-600.woff2?v=2>
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-regular.woff2?v=2>
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-italic.woff2?v=2>
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-700.woff2?v=2>
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-regular.woff2?v=2>
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-500.woff2?v=2>
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://browser.sentry-cdn.com/5.13.2/dedupe.min.js>
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://js.sentry-cdn.com/ca0147b59f9f46d9bac27e7727ef0ca6.min.js>
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css>
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/performance.js>
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head-sync-noncritical.js>
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/dfp.js>
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/cub-widget.0.30.x.js> (resource type: script)
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo-white-lexipol.svg>
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head.js> (resource type: script)
+2023-11-14 10:40:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/county-constables/office-of-the-state-constable-middletown-PA-30mD5PCShenxNxDs/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:40:14 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo.svg>
+2023-11-14 10:40:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/county-constables/office-of-the-state-constable-middletown-PA-30mD5PCShenxNxDs/>
+{'address_1': '54 W Roosevelt Ave',
+ 'city': 'Middletown',
+ 'country': 'United States',
+ 'county': 'Dauphin',
+ 'department_name': 'Office of the State Constable',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/county-constables/office-of-the-state-constable-middletown-PA-30mD5PCShenxNxDs/',
+ 'fax_': '(717)-944-4324',
+ 'number_of_officers': 1,
+ 'phone_': '(717)-736-2099',
+ 'population_served': 9000,
+ 'state': 'Pennsylvania',
+ 'type': 'County Constables',
+ 'zip_code': '17057'}
+2023-11-14 10:40:19 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:40:21 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/stats/ HTTP/1.1" 200 108
+2023-11-14 10:40:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/kansas-police-department-kansas-IL-e3Eky66hcbWnohKF/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:40:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/kansas-police-department-kansas-IL-e3Eky66hcbWnohKF/>
+{'address_1': '104 South Front Street',
+ 'address_2': 'POB 438',
+ 'city': 'Kansas',
+ 'country': 'United States',
+ 'county': 'Edgar',
+ 'department_name': 'Kansas Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/kansas-police-department-kansas-IL-e3Eky66hcbWnohKF/',
+ 'fax_': '(217)-948-1066',
+ 'number_of_officers': 8,
+ 'phone_': '(217)-948-5621',
+ 'population_served': 850,
+ 'state': 'Illinois',
+ 'type': 'Police Departments',
+ 'zip_code': '61933'}
+2023-11-14 10:40:22 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.google-analytics.com/collect> (resource type: xhr)
+2023-11-14 10:40:22 [scrapy-playwright] DEBUG: [Context=default] Request: <HEAD https://googleads.g.doubleclick.net/pagead/id> (resource type: fetch)
+2023-11-14 10:40:22 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/search.js> (resource type: script)
+2023-11-14 10:40:22 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/cub-widget.0.30.x.js>
+2023-11-14 10:40:22 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://browser.sentry-cdn.com/5.30.0/bundle.min.js> (resource type: script)
+2023-11-14 10:40:23 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/fonts/fontello/font/fontello.woff2> (resource type: font, referrer: https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css)
+2023-11-14 10:40:23 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head.js>
+2023-11-14 10:40:23 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/search.js>
+2023-11-14 10:40:23 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.google-analytics.com/collect>
+2023-11-14 10:40:23 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://browser.sentry-cdn.com/5.30.0/bundle.min.js>
+2023-11-14 10:40:23 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/fonts/fontello/font/fontello.woff2>
+2023-11-14 10:40:23 [scrapy-playwright] DEBUG: [Context=default] Response: <302 https://googleads.g.doubleclick.net/pagead/id> (location: https://googleads.g.doubleclick.net/pagead/id?slf_rd=1)
+2023-11-14 10:40:23 [scrapy-playwright] DEBUG: [Context=default] Request: <HEAD https://googleads.g.doubleclick.net/pagead/id?slf_rd=1> (resource type: fetch)
+2023-11-14 10:40:24 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://googleads.g.doubleclick.net/pagead/id?slf_rd=1>
+2023-11-14 10:40:24 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.police1.com/stats?js=1&ga=1&head=1&sentry=1&head_sync=1&sentry_config=1&ads_script=1&ads_request=1> (resource type: xhr, referrer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:40:24 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-2%2F&cub_xdm_c=cub772954&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq> (resource type: document)
+2023-11-14 10:40:24 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/static/css/FontAwesome.css> (resource type: stylesheet)
+2023-11-14 10:40:24 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.police1.com/stats?js=1&ga=1&head=1&sentry=1&head_sync=1&sentry_config=1&ads_script=1&ads_request=1>
+2023-11-14 10:40:24 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/static/css/FontAwesome.css>
+2023-11-14 10:40:24 [scrapy-playwright] DEBUG: [Context=default] Request: <POST https://go.lexipol.com/api/impressions/> (resource type: ping)
+2023-11-14 10:40:24 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-2%2F&cub_xdm_c=cub772954&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq>
+2023-11-14 10:40:25 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://go.lexipol.com/api/impressions/>
+2023-11-14 10:40:25 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/v1/sites/?domain=www.police1.com&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-2%2F> (resource type: xhr, referrer: https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-2%2F&cub_xdm_c=cub772954&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq)
+2023-11-14 10:40:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/search/page-2/> (referer: https://www.police1.com/law-enforcement-directory/search/) ['playwright']
+2023-11-14 10:40:25 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://id.lexipol.com/v1/sites/?domain=www.police1.com&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-2%2F>
+2023-11-14 10:40:25 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/v1/sites/?domain=%7Breferer%7D&expand=mailinglists__mailinglist%2Cvendor_lead_form%2Csiteplans__plan__product%2Csitebenefits__benefit%2Csso_settings&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-2%2F> (resource type: xhr, referrer: https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-2%2F&cub_xdm_c=cub772954&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq)
+2023-11-14 10:40:25 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/static/vendor/iubenda/ccpa/stub.js> (resource type: script)
+2023-11-14 10:40:25 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/cs/iubenda_cs.js?referer=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-2%2F> (resource type: script)
+2023-11-14 10:40:25 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/static/vendor/iubenda/ccpa/stub.js>
+2023-11-14 10:40:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/rutland-police-department-rutland-MA-734cdb47e1e10b0b/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:40:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/rutland-police-department-rutland-MA-734cdb47e1e10b0b/>
+{'address_1': 'PO Box 242',
+ 'city': 'Rutland',
+ 'country': 'United States',
+ 'county': 'Worcester',
+ 'department_name': 'Rutland Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/rutland-police-department-rutland-MA-734cdb47e1e10b0b/',
+ 'fax_': '(508)-886-4117',
+ 'number_of_officers': 20,
+ 'phone_': '(508)-886-4106',
+ 'population_served': 9094,
+ 'state': 'Massachusetts',
+ 'type': 'Police Departments',
+ 'website': 'http://townofrutland.org/Pages/RutlandMA_Police/index',
+ 'zip_code': '01543'}
+2023-11-14 10:40:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/corrections-center/yellowstone-county-detention-center-billings-MT-dvx32HktdHiXG6rn/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:40:29 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/corrections-center/yellowstone-county-detention-center-billings-MT-dvx32HktdHiXG6rn/>
+{'address_1': '3165 King Ave E',
+ 'city': 'Billings',
+ 'country': 'United States',
+ 'county': 'Yellowstone',
+ 'department_name': 'Yellowstone County Detention Center',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/corrections-center/yellowstone-county-detention-center-billings-MT-dvx32HktdHiXG6rn/',
+ 'number_of_officers': 54,
+ 'phone_': '(406)-256-6881',
+ 'population_served': 180000,
+ 'state': 'Montana',
+ 'type': 'Corrections Center',
+ 'website': 'http://co.yellowstone.mt.gov/sheriff/detention/dcsearch.asp',
+ 'zip_code': '59102'}
+2023-11-14 10:40:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/alton-police-department-alton-TX-059e7918c81c86d5/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:40:32 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/alton-police-department-alton-TX-059e7918c81c86d5/>
+{'address_1': '509 S. Alton Blvd',
+ 'city': 'Alton',
+ 'country': 'United States',
+ 'county': 'Hidalgo',
+ 'department_name': 'Alton Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/alton-police-department-alton-TX-059e7918c81c86d5/',
+ 'fax_': '(956)-432-0711',
+ 'number_of_officers': 21,
+ 'phone_': '(956)-432-0700',
+ 'population_served': 16800,
+ 'state': 'Texas',
+ 'type': 'Police Departments',
+ 'website': 'https://alton-tx.gov/',
+ 'zip_code': '78573'}
+2023-11-14 10:40:34 [scrapy.extensions.logstats] INFO: Crawled 25 pages (at 15 pages/min), scraped 22 items (at 14 items/min)
+2023-11-14 10:40:34 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:40:35 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/stats/ HTTP/1.1" 200 108
+2023-11-14 10:40:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/newark-police-department-newark-NJ-ed9876b3e96761fc/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:40:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/newark-police-department-newark-NJ-ed9876b3e96761fc/>
+{'address_1': '1009 Bergen St',
+ 'city': 'Newark',
+ 'country': 'United States',
+ 'county': 'Hudson',
+ 'department_name': 'Newark Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/newark-police-department-newark-NJ-ed9876b3e96761fc/',
+ 'phone_': '(973)-733-3941',
+ 'state': 'New Jersey',
+ 'type': 'Police Departments',
+ 'website': 'http://newarkpdonline.org/',
+ 'zip_code': '07112'}
+2023-11-14 10:40:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/headquarters/newark-chief-of-police-newark-NJ-5GwU6yhsqRfBtIik/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:40:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/headquarters/newark-chief-of-police-newark-NJ-5GwU6yhsqRfBtIik/>
+{'address_1': '31 Green Street, #4',
+ 'city': 'Newark',
+ 'country': 'United States',
+ 'county': 'Hudson',
+ 'department_name': 'Newark Chief of Police',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/headquarters/newark-chief-of-police-newark-NJ-5GwU6yhsqRfBtIik/',
+ 'phone_': '(973)-733-6520',
+ 'state': 'New Jersey',
+ 'type': 'Headquarters',
+ 'website': 'http://newarkpdonline.org/',
+ 'zip_code': '07102'}
+2023-11-14 10:40:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/bowling-green-state-university-police-department-bowling-green-OH-08dc36b7fb6d183a/> (referer: https://www.police1.com/law-enforcement-directory/search/)
+2023-11-14 10:40:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/bowling-green-state-university-police-department-bowling-green-OH-08dc36b7fb6d183a/>
+{'address_1': '100 College Park Office Building',
+ 'city': 'Bowling Green',
+ 'country': 'United States',
+ 'county': 'Wood',
+ 'department_name': 'Bowling Green State University Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/bowling-green-state-university-police-department-bowling-green-OH-08dc36b7fb6d183a/',
+ 'number_of_officers': 24,
+ 'phone_': '(419)-372-2346',
+ 'state': 'Ohio',
+ 'type': 'Police Departments',
+ 'website': 'https://www.bgsu.edu/public-safety/bgsu-police.html',
+ 'zip_code': '43403'}
+2023-11-14 10:40:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/sheriffs-departments/champaign-county-sheriffs-office-urbana-IL-573d99faf7fb5c94/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:40:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/sheriffs-departments/champaign-county-sheriffs-office-urbana-IL-573d99faf7fb5c94/>
+{'address_1': '204 E Main Street',
+ 'city': 'Urbana',
+ 'country': 'United States',
+ 'county': 'Champaign',
+ 'department_name': "Champaign County Sheriff's Office",
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/sheriffs-departments/champaign-county-sheriffs-office-urbana-IL-573d99faf7fb5c94/',
+ 'number_of_officers': 54,
+ 'phone_': '(217)-384-1204',
+ 'population_served': 210000,
+ 'state': 'Illinois',
+ 'type': 'Sheriffs Departments',
+ 'website': 'http://www.co.champaign.il.us/sheriff',
+ 'zip_code': '61802'}
+2023-11-14 10:40:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/east-jordan-east-jordan-MI-9hkp13rEskOBbJ6X/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:40:52 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/east-jordan-east-jordan-MI-9hkp13rEskOBbJ6X/>
+{'address_1': '326 Main St',
+ 'city': 'East Jordan',
+ 'country': 'United States',
+ 'county': 'Charlevoix',
+ 'department_name': 'East Jordan',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/east-jordan-east-jordan-MI-9hkp13rEskOBbJ6X/',
+ 'number_of_officers': 5,
+ 'phone_': '(231)-536-2273',
+ 'population_served': 2340,
+ 'state': 'Michigan',
+ 'type': 'Police Departments',
+ 'website': 'http://eastjordancity.org/city/police-dept/',
+ 'zip_code': '49727'}
+2023-11-14 10:40:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/west-point-police-department-west-point-VA-0a383cc5abc939cf/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:40:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/west-point-police-department-west-point-VA-0a383cc5abc939cf/>
+{'address_1': '433 12th Street',
+ 'address_2': 'PO Box 152',
+ 'city': 'West Point',
+ 'country': 'United States',
+ 'county': 'King William County',
+ 'department_name': 'West Point Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/west-point-police-department-west-point-VA-0a383cc5abc939cf/',
+ 'fax_': '(804)-843-4161',
+ 'number_of_officers': 11,
+ 'phone_': '(804)-843-2800',
+ 'population_served': 3300,
+ 'state': 'Virginia',
+ 'type': 'Police Departments',
+ 'website': 'http://west-point.va.us/pages/department_services/police_department.php',
+ 'zip_code': '23181'}
+2023-11-14 10:40:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/campus-police-department/wake-tech-campus-police-raleigh-NC-95e5f24e43298b43/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:40:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/campus-police-department/wake-tech-campus-police-raleigh-NC-95e5f24e43298b43/>
+{'address_1': '9101 Fayetteville Rd.',
+ 'city': 'Raleigh',
+ 'country': 'United States',
+ 'county': 'Wake',
+ 'department_name': 'Wake Tech Campus Police',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/campus-police-department/wake-tech-campus-police-raleigh-NC-95e5f24e43298b43/',
+ 'fax_': '(919)-866-7907',
+ 'number_of_officers': 26,
+ 'phone_': '(919)-866-5943',
+ 'population_served': 74000,
+ 'state': 'North Carolina',
+ 'type': 'Campus Police Department',
+ 'website': 'https://www.waketech.edu/about-wake-tech/administrative-offices/campus-police',
+ 'zip_code': '26703'}
+2023-11-14 10:41:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/marshals-department/ridgeway-marshals-office-ridgeway-WI-gUmfcvlnTs18gOlj/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/marshals-department/ridgeway-marshals-office-ridgeway-WI-gUmfcvlnTs18gOlj/>
+{'address_1': '208 Jarvis Street Suite B',
+ 'address_2': "113 Doughrety Court - Clerk's Office",
+ 'city': 'Ridgeway',
+ 'country': 'United States',
+ 'county': 'Ridgeway',
+ 'department_name': "Ridgeway Marshal's Office ",
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/marshals-department/ridgeway-marshals-office-ridgeway-WI-gUmfcvlnTs18gOlj/',
+ 'number_of_officers': 1,
+ 'phone_': '(608)-924-1030',
+ 'population_served': 652,
+ 'state': 'Wisconsin',
+ 'type': 'Marshals Department',
+ 'website': 'https://www.villageofridgeway.com/',
+ 'zip_code': '53582'}
+2023-11-14 10:41:04 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:41:05 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/stats/ HTTP/1.1" 200 108
+2023-11-14 10:41:06 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/greeley-police-department-greeley-CO-af91808a5507a4d8/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/greeley-police-department-greeley-CO-af91808a5507a4d8/>
+{'address_1': '2875 W. 10th Street',
+ 'address_2': 'Greeley, CO 80634',
+ 'city': 'Greeley',
+ 'country': 'United States',
+ 'county': 'Weld',
+ 'department_name': 'Greeley Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/greeley-police-department-greeley-CO-af91808a5507a4d8/',
+ 'fax_': '(970)-350-9655',
+ 'number_of_officers': 157,
+ 'phone_': '(970)-350-9605',
+ 'population_served': 108000,
+ 'state': 'Colorado',
+ 'type': 'Police Departments',
+ 'website': 'https://greeleypd.com/',
+ 'zip_code': '80634'}
+2023-11-14 10:41:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/security-agency/river-oaks-patrol-houston-TX-36it6gNe4gC5c8lg/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/security-agency/river-oaks-patrol-houston-TX-36it6gNe4gC5c8lg/>
+{'address_1': '3923 San Felipe St',
+ 'city': 'Houston',
+ 'country': 'United States',
+ 'county': 'Harris',
+ 'department_name': 'River Oaks Patrol',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/security-agency/river-oaks-patrol-houston-TX-36it6gNe4gC5c8lg/',
+ 'number_of_officers': 21,
+ 'phone_': '(713)-622-0001',
+ 'population_served': 2000,
+ 'state': 'Texas',
+ 'type': 'Security Agency',
+ 'website': 'http://www.ropo.org/',
+ 'zip_code': '77027'}
+2023-11-14 10:41:13 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/ag-valley-railroad-police-chicago-IL-Xsaq6sDXQovPJoXD/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/ag-valley-railroad-police-chicago-IL-Xsaq6sDXQovPJoXD/>
+{'address_1': '2701 E. 100th Street',
+ 'city': 'Chicago',
+ 'country': 'United States',
+ 'county': 'Chicago',
+ 'department_name': 'AG Valley Railroad Police',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/ag-valley-railroad-police-chicago-IL-Xsaq6sDXQovPJoXD/',
+ 'number_of_officers': 16,
+ 'phone_': '(773)-849-6192',
+ 'state': 'Illinois',
+ 'type': 'Police Departments',
+ 'zip_code': '60617'}
+2023-11-14 10:41:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/sheriffs-departments/eagle-county-sheriffs-office-co-eagle-CO-16e9c483070449a5/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/sheriffs-departments/eagle-county-sheriffs-office-co-eagle-CO-16e9c483070449a5/>
+{'address_1': '885 E. Chambers Ave.',
+ 'address_2': 'PO Box 359',
+ 'city': 'Eagle',
+ 'country': 'United States',
+ 'county': 'Eagle',
+ 'department_name': "Eagle County Sheriff's Office (CO)",
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/sheriffs-departments/eagle-county-sheriffs-office-co-eagle-CO-16e9c483070449a5/',
+ 'fax_': '(970)-328-1448',
+ 'number_of_officers': 65,
+ 'phone_': '(970)-328-8500',
+ 'population_served': 54772,
+ 'state': 'Colorado',
+ 'type': 'Sheriffs Departments',
+ 'website': 'https://www.eaglecounty.us/Sheriff/',
+ 'zip_code': '81631'}
+2023-11-14 10:41:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/warrensburg-police-department-warrensburg-MO-69e1ed6f80473f56/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:20 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/warrensburg-police-department-warrensburg-MO-69e1ed6f80473f56/>
+{'address_1': '102 B South Holden',
+ 'city': 'Warrensburg',
+ 'country': 'United States',
+ 'county': 'Johnson',
+ 'department_name': 'Warrensburg Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/warrensburg-police-department-warrensburg-MO-69e1ed6f80473f56/',
+ 'fax_': '(660)-747-1867',
+ 'number_of_officers': 36,
+ 'phone_': '(660)-747-9133',
+ 'population_served': 19800,
+ 'state': 'Missouri',
+ 'type': 'Police Departments',
+ 'website': 'http://www.warrensburg-mo.com/',
+ 'zip_code': '64093'}
+2023-11-14 10:41:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/town-of-durham-police-department-east-durham-ny-NY-KlNq0iTmeKZ0QEMt/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/town-of-durham-police-department-east-durham-ny-NY-KlNq0iTmeKZ0QEMt/>
+{'address_1': '7309 State Route 81',
+ 'city': 'East Durham, NY',
+ 'country': 'United States',
+ 'county': 'Greene',
+ 'department_name': 'Town of Durham Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/town-of-durham-police-department-east-durham-ny-NY-KlNq0iTmeKZ0QEMt/',
+ 'fax_': '(518)-239-6794',
+ 'number_of_officers': 7,
+ 'phone_': '(518)-239-6310',
+ 'population_served': 2725,
+ 'state': 'New York',
+ 'type': 'Police Departments',
+ 'website': 'https://www.durhamny.com/departments/public-safety/police/durhampolice.html',
+ 'zip_code': '12423'}
+2023-11-14 10:41:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/mt-vernon-police-department-mt-vernon-AL-d5ae0d17f084e7a4/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:29 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/mt-vernon-police-department-mt-vernon-AL-d5ae0d17f084e7a4/>
+{'address_1': '19180 Shepard Lake Rd',
+ 'city': 'Mt. Vernon',
+ 'country': 'United States',
+ 'county': 'Mobile',
+ 'department_name': 'Mt. Vernon Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/mt-vernon-police-department-mt-vernon-AL-d5ae0d17f084e7a4/',
+ 'fax_': '(251)-299-1088',
+ 'number_of_officers': 10,
+ 'phone_': '(251)-299-1087',
+ 'population_served': 1500,
+ 'state': 'Alabama',
+ 'type': 'Police Departments',
+ 'website': 'https://mtvernonal.com/PoliceDepartment.html',
+ 'zip_code': '36560'}
+2023-11-14 10:41:30 [scrapy-playwright] DEBUG: [Context=default] New page created, page count is 1 (1 for all contexts)
+2023-11-14 10:41:35 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:41:36 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/stats/ HTTP/1.1" 200 108
+2023-11-14 10:41:36 [scrapy.extensions.logstats] INFO: Crawled 40 pages (at 15 pages/min), scraped 37 items (at 15 items/min)
+2023-11-14 10:41:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/st-louis-county-police-department-clayton-MO-68be0bbc41f9a1e8/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:37 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/st-louis-county-police-department-clayton-MO-68be0bbc41f9a1e8/>
+{'address_1': '7900 Forsyth',
+ 'city': 'Clayton',
+ 'country': 'United States',
+ 'department_name': 'St. Louis County Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/st-louis-county-police-department-clayton-MO-68be0bbc41f9a1e8/',
+ 'number_of_officers': 1004,
+ 'phone_': '(636)-529-8210',
+ 'state': 'Missouri',
+ 'type': 'Police Departments',
+ 'zip_code': '63105'}
+2023-11-14 10:41:37 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.police1.com/law-enforcement-directory/search/page-3/> (resource type: document)
+2023-11-14 10:41:37 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.police1.com/law-enforcement-directory/search/page-3/>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Rokkitt/font/rokkitt-v19-latin-600.woff2?v=2> (resource type: font)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-regular.woff2?v=2> (resource type: font)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-italic.woff2?v=2> (resource type: font)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-700.woff2?v=2> (resource type: font)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-regular.woff2?v=2> (resource type: font)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-500.woff2?v=2> (resource type: font)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/performance.js> (resource type: script)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css> (resource type: stylesheet)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://js.sentry-cdn.com/ca0147b59f9f46d9bac27e7727ef0ca6.min.js> (resource type: script)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://browser.sentry-cdn.com/5.13.2/dedupe.min.js> (resource type: script)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head-sync-noncritical.js> (resource type: script)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/dfp.js> (resource type: script)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo-white-lexipol.svg> (resource type: image)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo.svg> (resource type: image)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Rokkitt/font/rokkitt-v19-latin-600.woff2?v=2>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-regular.woff2?v=2>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-italic.woff2?v=2>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-700.woff2?v=2>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-regular.woff2?v=2>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/performance.js>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://browser.sentry-cdn.com/5.13.2/dedupe.min.js>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://js.sentry-cdn.com/ca0147b59f9f46d9bac27e7727ef0ca6.min.js>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-500.woff2?v=2>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo.svg>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo-white-lexipol.svg>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head-sync-noncritical.js>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.google-analytics.com/collect> (resource type: xhr)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <HEAD https://googleads.g.doubleclick.net/pagead/id> (resource type: fetch)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/dfp.js>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/cub-widget.0.30.x.js> (resource type: script)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head.js> (resource type: script)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/search.js> (resource type: script)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://browser.sentry-cdn.com/5.30.0/bundle.min.js> (resource type: script)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/fonts/fontello/font/fontello.woff2> (resource type: font, referrer: https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/cub-widget.0.30.x.js>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head.js>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.google-analytics.com/collect>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://browser.sentry-cdn.com/5.30.0/bundle.min.js>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/search.js>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <302 https://googleads.g.doubleclick.net/pagead/id> (location: https://googleads.g.doubleclick.net/pagead/id?slf_rd=1)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <HEAD https://googleads.g.doubleclick.net/pagead/id?slf_rd=1> (resource type: fetch)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/fonts/fontello/font/fontello.woff2>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://googleads.g.doubleclick.net/pagead/id?slf_rd=1>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.police1.com/stats?js=1&ga=1&ads_request=1&head=1&sentry=1&head_sync=1&sentry_config=1&ads_script=1> (resource type: xhr, referrer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-3%2F&cub_xdm_c=cub39763&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq> (resource type: document)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/static/css/FontAwesome.css> (resource type: stylesheet)
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.police1.com/stats?js=1&ga=1&ads_request=1&head=1&sentry=1&head_sync=1&sentry_config=1&ads_script=1>
+2023-11-14 10:41:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/static/css/FontAwesome.css>
+2023-11-14 10:41:39 [scrapy-playwright] DEBUG: [Context=default] Request: <POST https://go.lexipol.com/api/impressions/> (resource type: ping)
+2023-11-14 10:41:39 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-3%2F&cub_xdm_c=cub39763&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq>
+2023-11-14 10:41:39 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://go.lexipol.com/api/impressions/>
+2023-11-14 10:41:39 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/v1/sites/?domain=www.police1.com&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-3%2F> (resource type: xhr, referrer: https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-3%2F&cub_xdm_c=cub39763&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq)
+2023-11-14 10:41:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/search/page-3/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/) ['playwright']
+2023-11-14 10:41:39 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://id.lexipol.com/v1/sites/?domain=www.police1.com&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-3%2F>
+2023-11-14 10:41:39 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/v1/sites/?domain=%7Breferer%7D&expand=mailinglists__mailinglist%2Cvendor_lead_form%2Csiteplans__plan__product%2Csitebenefits__benefit%2Csso_settings&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-3%2F> (resource type: xhr, referrer: https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-3%2F&cub_xdm_c=cub39763&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq)
+2023-11-14 10:41:39 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/static/vendor/iubenda/ccpa/stub.js> (resource type: script)
+2023-11-14 10:41:39 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/cs/iubenda_cs.js?referer=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-3%2F> (resource type: script)
+2023-11-14 10:41:39 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/static/vendor/iubenda/ccpa/stub.js>
+2023-11-14 10:41:39 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://id.lexipol.com/cs/iubenda_cs.js?referer=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-3%2F>
+2023-11-14 10:41:39 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/static/vendor/iubenda/core-en_1.45.1.js> (resource type: script)
+2023-11-14 10:41:39 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://id.lexipol.com/v1/sites/?domain=%7Breferer%7D&expand=mailinglists__mailinglist%2Cvendor_lead_form%2Csiteplans__plan__product%2Csitebenefits__benefit%2Csso_settings&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-3%2F>
+2023-11-14 10:41:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/benavides-police-department-benavides-TX-08778a411e4a7d39/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/benavides-police-department-benavides-TX-08778a411e4a7d39/>
+{'address_1': '213 N Clark',
+ 'address_2': 'Po drawer R',
+ 'city': 'Benavides',
+ 'country': 'United States',
+ 'county': 'Duval',
+ 'department_name': 'Benavides police department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/benavides-police-department-benavides-TX-08778a411e4a7d39/',
+ 'fax_': '(361)-256-3915',
+ 'number_of_officers': 11,
+ 'phone_': '(361)-256-3283',
+ 'population_served': 2000,
+ 'state': 'Texas',
+ 'type': 'Police Departments',
+ 'zip_code': '78341'}
+2023-11-14 10:41:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/lubbock-international-airport-police-department-lubbock-TX-yEM6dCYpjy3Smhmn/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/lubbock-international-airport-police-department-lubbock-TX-yEM6dCYpjy3Smhmn/>
+{'address_1': '5401 North Martin Luther King Blvd',
+ 'city': 'Lubbock',
+ 'country': 'United States',
+ 'county': 'Lubbock',
+ 'department_name': 'Lubbock International Airport Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/lubbock-international-airport-police-department-lubbock-TX-yEM6dCYpjy3Smhmn/',
+ 'number_of_officers': 11,
+ 'phone_': '(806)-775-2044',
+ 'population_served': 250000,
+ 'state': 'Texas',
+ 'type': 'Police Departments',
+ 'zip_code': '79423'}
+2023-11-14 10:41:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/el-mirage-police-department-el-mirage-AZ-61cc41c610cd8160/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/el-mirage-police-department-el-mirage-AZ-61cc41c610cd8160/>
+{'address_1': '12401 W Cinnabar Ave',
+ 'city': 'El Mirage',
+ 'country': 'United States',
+ 'county': 'Maricopa',
+ 'department_name': 'El Mirage Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/el-mirage-police-department-el-mirage-AZ-61cc41c610cd8160/',
+ 'fax_': '(623)-500-3001',
+ 'number_of_officers': 50,
+ 'phone_': '(623)-500-3000',
+ 'population_served': 36000,
+ 'state': 'Arizona',
+ 'type': 'Police Departments',
+ 'website': 'http://www.elmirageaz.gov/322/Police-Department',
+ 'zip_code': '85335'}
+2023-11-14 10:41:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/san-antonio-park-police-san-antonio-TX-LapUpY3vSK11qwUb/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/san-antonio-park-police-san-antonio-TX-LapUpY3vSK11qwUb/>
+{'address_1': '600 Hemisfair Park #337',
+ 'city': 'San Antonio',
+ 'country': 'United States',
+ 'county': 'Bexar',
+ 'department_name': 'San Antonio Park Police',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/san-antonio-park-police-san-antonio-TX-LapUpY3vSK11qwUb/',
+ 'fax_': '(210)-207-8530',
+ 'number_of_officers': 183,
+ 'phone_': '(210)-207-8590',
+ 'population_served': 15,
+ 'state': 'Texas',
+ 'type': 'Police Departments',
+ 'website': 'https://www.sanantonio.gov/Park-Police',
+ 'zip_code': '78205'}
+2023-11-14 10:41:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/sheriffs-departments/madison-county-sheriffs-department-in-anderson-IN-s9yp60LMSEvECKR7/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/sheriffs-departments/madison-county-sheriffs-department-in-anderson-IN-s9yp60LMSEvECKR7/>
+{'address_1': '720 Central Ave',
+ 'city': 'Anderson',
+ 'country': 'United States',
+ 'county': 'Madison',
+ 'department_name': "Madison County Sheriff's Department (IN)",
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/sheriffs-departments/madison-county-sheriffs-department-in-anderson-IN-s9yp60LMSEvECKR7/',
+ 'phone_': '(765)-646-9290',
+ 'state': 'Indiana',
+ 'type': 'Sheriffs Departments',
+ 'website': 'http://www.sheriffofmadisoncounty.com/index.html',
+ 'zip_code': '46016'}
+2023-11-14 10:41:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/southern-ute-police-department-ignacio-CO-QFaQ4L23Z1CXwIAM/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:41:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/southern-ute-police-department-ignacio-CO-QFaQ4L23Z1CXwIAM/>
+{'address_1': '149 CR 517',
+ 'city': 'Ignacio',
+ 'country': 'United States',
+ 'county': 'La Plata',
+ 'department_name': 'Southern Ute Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/southern-ute-police-department-ignacio-CO-QFaQ4L23Z1CXwIAM/',
+ 'phone_': '(970)-563-0246',
+ 'state': 'Colorado',
+ 'type': 'Police Departments',
+ 'website': 'https://www.southernute-nsn.gov/justice-and-regulatory/supd/',
+ 'zip_code': '81137'}
+2023-11-14 10:42:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/st-charles-county-police-ofallon-MO-d020adeb1bf0af70/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:42:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/st-charles-county-police-ofallon-MO-d020adeb1bf0af70/>
+{'address_1': 'St. Charles County Police Department',
+ 'address_2': '101 Sheriff Dierker Ct',
+ 'city': "O'Fallon",
+ 'country': 'United States',
+ 'county': 'Missouri',
+ 'department_name': 'ST CHARLES COUNTY POLICE',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/st-charles-county-police-ofallon-MO-d020adeb1bf0af70/',
+ 'number_of_officers': 136,
+ 'phone_': '(636)-949-3005',
+ 'population_served': 435000,
+ 'state': 'Missouri',
+ 'type': 'Police Departments',
+ 'website': 'https://www.sccmo.org/',
+ 'zip_code': '63366'}
+2023-11-14 10:42:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/sheriffs-departments/sauk-county-sheriffs-office-baraboo-WI-oy4h10SAxA9cwc2g/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:42:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/sheriffs-departments/sauk-county-sheriffs-office-baraboo-WI-oy4h10SAxA9cwc2g/>
+{'address_1': '1300 Lange Court',
+ 'city': 'Baraboo',
+ 'country': 'United States',
+ 'county': 'Sauk',
+ 'department_name': "Sauk County Sheriff's Office",
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/sheriffs-departments/sauk-county-sheriffs-office-baraboo-WI-oy4h10SAxA9cwc2g/',
+ 'fax_': '(608)-355-3298',
+ 'phone_': '(608)-356-4895',
+ 'state': 'Wisconsin',
+ 'type': 'Sheriffs Departments',
+ 'website': 'https://www.co.sauk.wi.us/sheriffsoffice',
+ 'zip_code': '53913'}
+2023-11-14 10:42:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/military-law-enforcement-agencies/oklahoma-military-department-police-tulsa-OK-6ar1jbOFpkSFw9NQ/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:42:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/military-law-enforcement-agencies/oklahoma-military-department-police-tulsa-OK-6ar1jbOFpkSFw9NQ/>
+{'address_1': '9020 E. Globemaster Street, Suite 125',
+ 'city': 'Tulsa',
+ 'country': 'United States',
+ 'county': 'Tulsa',
+ 'department_name': 'Oklahoma Military Department Police',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/military-law-enforcement-agencies/oklahoma-military-department-police-tulsa-OK-6ar1jbOFpkSFw9NQ/',
+ 'number_of_officers': 16,
+ 'phone_': '(918)-833-7138',
+ 'population_served': 7503500,
+ 'state': 'Oklahoma',
+ 'type': 'Military Law Enforcement Agencies',
+ 'zip_code': '74115-1018'}
+2023-11-14 10:42:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/arkansas-supreme-court-police-department-little-rock-AR-z0uuktmYmuPycQ5a/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:42:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/arkansas-supreme-court-police-department-little-rock-AR-z0uuktmYmuPycQ5a/>
+{'address_1': 'Justice Building',
+ 'address_2': '625 Marshall St.',
+ 'city': 'Little Rock',
+ 'country': 'United States',
+ 'county': 'Pulaski',
+ 'department_name': 'Arkansas Supreme Court Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/arkansas-supreme-court-police-department-little-rock-AR-z0uuktmYmuPycQ5a/',
+ 'number_of_officers': 4,
+ 'phone_': '(501)-682-9400',
+ 'state': 'Arkansas',
+ 'type': 'Police Departments',
+ 'zip_code': '72201'}
+2023-11-14 10:42:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/grifton-police-department-grifton-NC-6H4OBp20Q5VT8QD8/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:42:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/grifton-police-department-grifton-NC-6H4OBp20Q5VT8QD8/>
+{'address_1': '540 Queen Street',
+ 'address_2': 'P.O. Box 579',
+ 'city': 'Grifton',
+ 'country': 'United States',
+ 'county': 'Pitt County',
+ 'department_name': 'Grifton Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/grifton-police-department-grifton-NC-6H4OBp20Q5VT8QD8/',
+ 'fax_': '(252)-524-4917',
+ 'number_of_officers': 9,
+ 'phone_': '(252)-524-4161',
+ 'population_served': 2600,
+ 'state': 'North Carolina',
+ 'type': 'Police Departments',
+ 'website': 'http://www.grifton.com/government/departments/police/index.php',
+ 'zip_code': '28530'}
+2023-11-14 10:42:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/county-jails/jackson-county-department-of-corrections-kansas-city-MO-3a0c90ea05e3c11a/> (referer: https://www.police1.com/law-enforcement-directory/search/page-2/)
+2023-11-14 10:42:20 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/county-jails/jackson-county-department-of-corrections-kansas-city-MO-3a0c90ea05e3c11a/>
+{'address_1': '1300 Cherry St',
+ 'city': 'KANSAS City',
+ 'country': 'United States',
+ 'county': 'Jackson',
+ 'department_name': 'Jackson County Department of Corrections',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/county-jails/jackson-county-department-of-corrections-kansas-city-MO-3a0c90ea05e3c11a/',
+ 'fax_': '(816)-881-6374',
+ 'number_of_officers': 218,
+ 'phone_': '(816)-881-4200',
+ 'population_served': 698895,
+ 'state': 'Missouri',
+ 'type': 'County Jails',
+ 'zip_code': '64106'}
+2023-11-14 10:42:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/university-of-arizona-police-department-tucson-AZ-7af7ccd0a1a2428c/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:42:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/university-of-arizona-police-department-tucson-AZ-7af7ccd0a1a2428c/>
+{'address_1': '1852 E. 1st Street',
+ 'city': 'Tucson',
+ 'country': 'United States',
+ 'county': 'Pima',
+ 'department_name': 'University of Arizona Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/university-of-arizona-police-department-tucson-AZ-7af7ccd0a1a2428c/',
+ 'phone_': '(520)-621-8273',
+ 'population_served': 56000,
+ 'state': 'Arizona',
+ 'type': 'Police Departments',
+ 'zip_code': '85719'}
+2023-11-14 10:42:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/bossier-city-police-department-louisiana-bossier-city-LA-1R7wHOEtCT09VmcD/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:42:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/bossier-city-police-department-louisiana-bossier-city-LA-1R7wHOEtCT09VmcD/>
+{'address_1': '620 Benton Rd',
+ 'city': 'Bossier City',
+ 'country': 'United States',
+ 'county': 'USA',
+ 'department_name': 'Bossier City Police Department, Louisiana',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/bossier-city-police-department-louisiana-bossier-city-LA-1R7wHOEtCT09VmcD/',
+ 'fax_': '(318)-741-8613',
+ 'number_of_officers': 140,
+ 'phone_': '(318)-741-8611',
+ 'population_served': 65000,
+ 'state': 'Louisiana',
+ 'type': 'Police Departments',
+ 'zip_code': '71111-3703'}
+2023-11-14 10:42:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/city-of-patton-village-police-department-patton-village-TX-wLE6oqxYMPX6nJpZ/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:42:31 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/city-of-patton-village-police-department-patton-village-TX-wLE6oqxYMPX6nJpZ/>
+{'address_1': '16940 Main St',
+ 'city': 'Patton Village',
+ 'country': 'United States',
+ 'county': 'Montgomery',
+ 'department_name': 'City of Patton Village Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/city-of-patton-village-police-department-patton-village-TX-wLE6oqxYMPX6nJpZ/',
+ 'number_of_officers': 16,
+ 'phone_': '(281)-689-9511',
+ 'population_served': 2200,
+ 'state': 'Texas',
+ 'type': 'Police Departments',
+ 'website': 'http://www.pattonvillagepolice.com',
+ 'zip_code': '77372'}
+2023-11-14 10:42:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/law-enforcement-associations/benton-county-environmental-enforcement-bentonville-AR-A7kK0AMQagjyL4UI/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:42:34 [scrapy.extensions.logstats] INFO: Crawled 58 pages (at 18 pages/min), scraped 53 items (at 16 items/min)
+2023-11-14 10:42:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/law-enforcement-associations/benton-county-environmental-enforcement-bentonville-AR-A7kK0AMQagjyL4UI/>
+{'address_1': '215 E. Central Avenue',
+ 'city': 'Bentonville',
+ 'country': 'United States',
+ 'county': 'Benton',
+ 'department_name': 'Benton County Environmental Enforcement',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/law-enforcement-associations/benton-county-environmental-enforcement-bentonville-AR-A7kK0AMQagjyL4UI/',
+ 'number_of_officers': 3,
+ 'phone_': '(479)-271-1083',
+ 'population_served': 249672,
+ 'state': 'Arkansas',
+ 'type': 'Law Enforcement Associations',
+ 'website': 'https://bentoncountyar.gov/environmental/',
+ 'zip_code': '72712'}
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] New page created, page count is 1 (1 for all contexts)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.police1.com/law-enforcement-directory/search/page-4/> (resource type: document)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.police1.com/law-enforcement-directory/search/page-4/>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Rokkitt/font/rokkitt-v19-latin-600.woff2?v=2> (resource type: font)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-regular.woff2?v=2> (resource type: font)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-italic.woff2?v=2> (resource type: font)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-700.woff2?v=2> (resource type: font)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-regular.woff2?v=2> (resource type: font)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-500.woff2?v=2> (resource type: font)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/performance.js> (resource type: script)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css> (resource type: stylesheet)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://js.sentry-cdn.com/ca0147b59f9f46d9bac27e7727ef0ca6.min.js> (resource type: script)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://browser.sentry-cdn.com/5.13.2/dedupe.min.js> (resource type: script)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head-sync-noncritical.js> (resource type: script)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/dfp.js> (resource type: script)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo-white-lexipol.svg> (resource type: image)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo.svg> (resource type: image)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-italic.woff2?v=2>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Rokkitt/font/rokkitt-v19-latin-600.woff2?v=2>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-regular.woff2?v=2>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-regular.woff2?v=2>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-500.woff2?v=2>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/performance.js>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-700.woff2?v=2>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head-sync-noncritical.js>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://js.sentry-cdn.com/ca0147b59f9f46d9bac27e7727ef0ca6.min.js>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://browser.sentry-cdn.com/5.13.2/dedupe.min.js>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/dfp.js>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo-white-lexipol.svg>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo.svg>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head.js> (resource type: script)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/cub-widget.0.30.x.js> (resource type: script)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.google-analytics.com/collect> (resource type: xhr)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <HEAD https://googleads.g.doubleclick.net/pagead/id> (resource type: fetch)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/search.js> (resource type: script)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://browser.sentry-cdn.com/5.30.0/bundle.min.js> (resource type: script)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/cub-widget.0.30.x.js>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/fonts/fontello/font/fontello.woff2> (resource type: font, referrer: https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head.js>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/search.js>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://browser.sentry-cdn.com/5.30.0/bundle.min.js>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.google-analytics.com/collect>
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <302 https://googleads.g.doubleclick.net/pagead/id> (location: https://googleads.g.doubleclick.net/pagead/id?slf_rd=1)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Request: <HEAD https://googleads.g.doubleclick.net/pagead/id?slf_rd=1> (resource type: fetch)
+2023-11-14 10:42:38 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/fonts/fontello/font/fontello.woff2>
+2023-11-14 10:42:39 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://googleads.g.doubleclick.net/pagead/id?slf_rd=1>
+2023-11-14 10:42:39 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.police1.com/stats?js=1&ga=1&head=1&sentry=1&head_sync=1&sentry_config=1&ads_script=1&ads_request=1> (resource type: xhr, referrer: https://www.police1.com/law-enforcement-directory/search/page-4/)
+2023-11-14 10:42:39 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-4%2F&cub_xdm_c=cub685218&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq> (resource type: document)
+2023-11-14 10:42:39 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/static/css/FontAwesome.css> (resource type: stylesheet)
+2023-11-14 10:42:39 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.police1.com/stats?js=1&ga=1&head=1&sentry=1&head_sync=1&sentry_config=1&ads_script=1&ads_request=1>
+2023-11-14 10:42:39 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/static/css/FontAwesome.css>
+2023-11-14 10:42:39 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-4%2F&cub_xdm_c=cub685218&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq>
+2023-11-14 10:42:39 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/v1/sites/?domain=www.police1.com&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-4%2F> (resource type: xhr, referrer: https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-4%2F&cub_xdm_c=cub685218&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq)
+2023-11-14 10:42:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/search/page-4/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/) ['playwright']
+2023-11-14 10:42:39 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://id.lexipol.com/v1/sites/?domain=www.police1.com&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-4%2F>
+2023-11-14 10:42:39 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/v1/sites/?domain=%7Breferer%7D&expand=mailinglists__mailinglist%2Cvendor_lead_form%2Csiteplans__plan__product%2Csitebenefits__benefit%2Csso_settings&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-4%2F> (resource type: xhr, referrer: https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-4%2F&cub_xdm_c=cub685218&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq)
+2023-11-14 10:42:39 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/static/vendor/iubenda/ccpa/stub.js> (resource type: script)
+2023-11-14 10:42:39 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/cs/iubenda_cs.js?referer=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-4%2F> (resource type: script)
+2023-11-14 10:42:39 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/static/vendor/iubenda/ccpa/stub.js>
+2023-11-14 10:42:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/county-constables/district-8-county-constables-hopkinsville-KY-876UiZ4DSTKq12Iq/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:42:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/county-constables/district-8-county-constables-hopkinsville-KY-876UiZ4DSTKq12Iq/>
+{'address_1': 'Po box 1145',
+ 'city': 'Hopkinsville',
+ 'country': 'United States',
+ 'county': 'Christian',
+ 'department_name': 'District 8 County Constables',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/county-constables/district-8-county-constables-hopkinsville-KY-876UiZ4DSTKq12Iq/',
+ 'phone_': '(270)-881-8461',
+ 'state': 'Kentucky',
+ 'type': 'County Constables',
+ 'website': 'http://www.christiancountyky.gov/county-constables.htm',
+ 'zip_code': '42240'}
+2023-11-14 10:42:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/hermosa-beach-police-department-hermosa-beach-CA-f2822c2c546ca5da/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:42:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/hermosa-beach-police-department-hermosa-beach-CA-f2822c2c546ca5da/>
+{'address_1': '540 Pier Ave',
+ 'city': 'Hermosa Beach',
+ 'country': 'United States',
+ 'county': 'United States',
+ 'department_name': 'Hermosa Beach Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/hermosa-beach-police-department-hermosa-beach-CA-f2822c2c546ca5da/',
+ 'phone_': '(310)-318-0360',
+ 'state': 'California',
+ 'type': 'Police Departments',
+ 'website': 'http://www.hermosabch.org/index.aspx?page=123',
+ 'zip_code': '90254'}
+2023-11-14 10:42:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/sheriffs-departments/cumberland-county-sheriffs-office-fayetteville-NC-c156b84c6da30b2c/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:42:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/sheriffs-departments/cumberland-county-sheriffs-office-fayetteville-NC-c156b84c6da30b2c/>
+{'address_1': '131 Dick Street',
+ 'city': 'Fayetteville',
+ 'country': 'United States',
+ 'county': 'Cumberland',
+ 'department_name': "Cumberland County Sheriff's Office",
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/sheriffs-departments/cumberland-county-sheriffs-office-fayetteville-NC-c156b84c6da30b2c/',
+ 'number_of_officers': 749,
+ 'phone_': '(910)-323-1500',
+ 'population_served': 300000,
+ 'state': 'North Carolina',
+ 'type': 'Sheriffs Departments',
+ 'website': 'https://www.ccsonc.org',
+ 'zip_code': '28301'}
+2023-11-14 10:42:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/addyston-police-department-addyston-OH-d82de04d103111f4/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:42:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/addyston-police-department-addyston-OH-d82de04d103111f4/>
+{'address_1': '235 Main Street',
+ 'address_2': 'P.O. Box 536',
+ 'city': 'Addyston',
+ 'country': 'United States',
+ 'county': 'Hamilton',
+ 'department_name': 'Addyston Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/addyston-police-department-addyston-OH-d82de04d103111f4/',
+ 'fax_': '(513)-941-2514',
+ 'number_of_officers': 12,
+ 'phone_': '(513)-941-1313',
+ 'population_served': 1000,
+ 'state': 'Ohio',
+ 'type': 'Police Departments',
+ 'website': 'http://www.addystonohio.org/public_safety.html',
+ 'zip_code': '45001'}
+2023-11-14 10:42:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/tyronza-police-department-tyronza-AR-ad625f71c937906b/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:42:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/tyronza-police-department-tyronza-AR-ad625f71c937906b/>
+{'address_1': '114 Junction St',
+ 'city': 'Tyronza',
+ 'country': 'United States',
+ 'county': 'Arkansas',
+ 'department_name': 'Tyronza Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/tyronza-police-department-tyronza-AR-ad625f71c937906b/',
+ 'number_of_officers': 4,
+ 'phone_': '(870)-487-2168',
+ 'state': 'Arkansas',
+ 'type': 'Police Departments',
+ 'zip_code': '72386'}
+2023-11-14 10:43:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/campus-police-department/georgia-northwestern-technical-college-police-rome-GA-y9os2hTJD37sTTB1/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:43:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/campus-police-department/georgia-northwestern-technical-college-police-rome-GA-y9os2hTJD37sTTB1/>
+{'address_1': 'One Maurice Culberson Drive',
+ 'city': 'Rome',
+ 'country': 'United States',
+ 'county': 'Georgia',
+ 'department_name': 'Georgia Northwestern Technical College Police',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/campus-police-department/georgia-northwestern-technical-college-police-rome-GA-y9os2hTJD37sTTB1/',
+ 'number_of_officers': 20,
+ 'phone_': '(866)-983-4682',
+ 'population_served': 98000,
+ 'state': 'Georgia',
+ 'type': 'Campus Police Department',
+ 'website': 'http://www.gntc.edu/',
+ 'zip_code': '30161'}
+2023-11-14 10:43:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/winterville-police-department-winterville-NC-VTh1YX9u96WyljDg/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:43:04 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:43:05 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/stats/ HTTP/1.1" 200 108
+2023-11-14 10:43:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/winterville-police-department-winterville-NC-VTh1YX9u96WyljDg/>
+{'address_1': '2593 N. Railroad St',
+ 'city': 'Winterville',
+ 'country': 'United States',
+ 'county': 'North Carolina',
+ 'department_name': 'Winterville Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/winterville-police-department-winterville-NC-VTh1YX9u96WyljDg/',
+ 'number_of_officers': 18,
+ 'phone_': '(252)-756-1105',
+ 'population_served': 10000,
+ 'state': 'North Carolina',
+ 'type': 'Police Departments',
+ 'zip_code': '28590'}
+2023-11-14 10:43:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/double-oak-police-department-tx-double-oak-TX-3900faa87872763a/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:43:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/double-oak-police-department-tx-double-oak-TX-3900faa87872763a/>
+{'address_1': '320 Waketon Road',
+ 'city': 'Double Oak',
+ 'country': 'United States',
+ 'county': 'Denton',
+ 'department_name': 'Double Oak Police Department (TX)',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/double-oak-police-department-tx-double-oak-TX-3900faa87872763a/',
+ 'number_of_officers': 10,
+ 'phone_': '(972)-355-5995',
+ 'population_served': 3000,
+ 'state': 'Texas',
+ 'type': 'Police Departments',
+ 'website': 'http://www.double-oak.com',
+ 'zip_code': '75077'}
+2023-11-14 10:43:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/adult-probation-parole/sidney-municipal-court-sidney-OH-PEfoqOMgawQZLwuM/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:43:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/adult-probation-parole/sidney-municipal-court-sidney-OH-PEfoqOMgawQZLwuM/>
+{'address_1': '110 W. Court St.',
+ 'city': 'Sidney',
+ 'country': 'United States',
+ 'county': 'Shelby',
+ 'department_name': 'Sidney Municipal Court',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/adult-probation-parole/sidney-municipal-court-sidney-OH-PEfoqOMgawQZLwuM/',
+ 'number_of_officers': 6,
+ 'phone_': '(937)-498-0011',
+ 'state': 'Ohio',
+ 'type': 'Adult Probation & Parole',
+ 'website': 'http://www.sidneyoh.com/court/index.asp',
+ 'zip_code': '45356'}
+2023-11-14 10:43:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/port-of-portland-police-department-portland-OR-Jdh7WmZi1pMmHEYe/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:43:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/port-of-portland-police-department-portland-OR-Jdh7WmZi1pMmHEYe/>
+{'address_1': '7000 Ne Airport way',
+ 'city': 'Portland',
+ 'country': 'United States',
+ 'county': 'Multnomah',
+ 'department_name': 'Port of Portland Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/port-of-portland-police-department-portland-OR-Jdh7WmZi1pMmHEYe/',
+ 'number_of_officers': 42,
+ 'phone_': '(503)-460-4221',
+ 'population_served': None,
+ 'state': 'Oregon',
+ 'type': 'Police Departments',
+ 'zip_code': '97218'}
+2023-11-14 10:43:19 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/university-of-alaska-fairbanks-police-department-ak-fairbanks-AK-f4b0e2e9b75229cd/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:43:20 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/university-of-alaska-fairbanks-police-department-ak-fairbanks-AK-f4b0e2e9b75229cd/>
+{'address_1': '1788 Yukon Drive',
+ 'city': 'Fairbanks',
+ 'country': 'United States',
+ 'department_name': 'University of Alaska Fairbanks Police Department (AK)',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/university-of-alaska-fairbanks-police-department-ak-fairbanks-AK-f4b0e2e9b75229cd/',
+ 'fax_': '(907)-474-5555',
+ 'number_of_officers': 8,
+ 'phone_': '(907)-474-7721',
+ 'population_served': 3500,
+ 'state': 'Alaska',
+ 'type': 'Police Departments',
+ 'website': 'https://www.uaf.edu/police',
+ 'zip_code': '99775'}
+2023-11-14 10:43:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/ceredo-police-department-ceredo-WV-622e95a61ebcac2c/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:43:24 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/ceredo-police-department-ceredo-WV-622e95a61ebcac2c/>
+{'address_1': '766 B St.',
+ 'address_2': 'P.O. Box 691',
+ 'city': 'Ceredo',
+ 'country': 'United States',
+ 'county': 'Wayne',
+ 'department_name': 'Ceredo Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/ceredo-police-department-ceredo-WV-622e95a61ebcac2c/',
+ 'fax_': '(304)-453-4937',
+ 'number_of_officers': 6,
+ 'phone_': '(304)-453-1411',
+ 'population_served': 2500,
+ 'state': 'West Virginia',
+ 'type': 'Police Departments',
+ 'website': 'https://www.ceredopolice.com',
+ 'zip_code': '25507'}
+2023-11-14 10:43:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/campus-police-department/university-of-southern-indiana-public-safety-office-evansville-IN-tUwVbu03e1g0lzHW/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:43:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/campus-police-department/university-of-southern-indiana-public-safety-office-evansville-IN-tUwVbu03e1g0lzHW/>
+{'address_1': '8600 University Blvd',
+ 'city': 'Evansville',
+ 'country': 'United States',
+ 'county': 'Vanderburgh',
+ 'department_name': 'University of Southern Indiana Public Safety Office',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/campus-police-department/university-of-southern-indiana-public-safety-office-evansville-IN-tUwVbu03e1g0lzHW/',
+ 'fax_': '(812)-465-1185',
+ 'phone_': '(812)-464-1815',
+ 'state': 'Indiana',
+ 'type': 'Campus Police Department',
+ 'website': 'https://www.usi.edu/security/',
+ 'zip_code': '47712'}
+2023-11-14 10:43:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/marshals-department/aurora-marshals-office-aurora-CO-m18nSjXXb8rHkRrB/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:43:31 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/marshals-department/aurora-marshals-office-aurora-CO-m18nSjXXb8rHkRrB/>
+{'address_1': '14999 E Alameda Pkwy',
+ 'city': 'Aurora',
+ 'country': 'United States',
+ 'county': 'Arapahoe',
+ 'department_name': "Aurora Marshal's Office",
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/marshals-department/aurora-marshals-office-aurora-CO-m18nSjXXb8rHkRrB/',
+ 'number_of_officers': 15,
+ 'phone_': '(303)-739-6444',
+ 'population_served': 360000,
+ 'state': 'Colorado',
+ 'type': 'Marshals Department',
+ 'zip_code': '80012'}
+2023-11-14 10:43:34 [scrapy.extensions.logstats] INFO: Crawled 73 pages (at 15 pages/min), scraped 68 items (at 15 items/min)
+2023-11-14 10:43:34 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:43:35 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/stats/ HTTP/1.1" 200 108
+2023-11-14 10:43:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/asbury-park-police-department-asbury-park-NJ-coLG8P5gnwI6LETJ/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:43:35 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/asbury-park-police-department-asbury-park-NJ-coLG8P5gnwI6LETJ/>
+{'address_1': '1 Municipal Plz',
+ 'city': 'Asbury park',
+ 'country': 'United States',
+ 'county': 'Mommouth',
+ 'department_name': 'Asbury Park Police Department ',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/asbury-park-police-department-asbury-park-NJ-coLG8P5gnwI6LETJ/',
+ 'phone_': '(732)-774-1300',
+ 'state': 'New Jersey',
+ 'type': 'Police Departments',
+ 'website': 'http://www.cityofasburypark.com',
+ 'zip_code': '07712'}
+2023-11-14 10:43:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/holland-department-of-public-safety-holland-MI-ayujwcuXtBsmn2N4/> (referer: https://www.police1.com/law-enforcement-directory/search/page-3/)
+2023-11-14 10:43:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/holland-department-of-public-safety-holland-MI-ayujwcuXtBsmn2N4/>
+{'address_1': '89 West 8th Street',
+ 'city': 'Holland',
+ 'country': 'United States',
+ 'county': 'Ottawa',
+ 'department_name': 'Holland Department of Public Safety',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/holland-department-of-public-safety-holland-MI-ayujwcuXtBsmn2N4/',
+ 'fax_': '(616)-355-1109',
+ 'phone_': '(616)-355-1100',
+ 'state': 'Michigan',
+ 'type': 'Police Departments',
+ 'zip_code': '49423'}
+2023-11-14 10:43:43 [scrapy-playwright] DEBUG: [Context=default] New page created, page count is 1 (1 for all contexts)
+2023-11-14 10:43:43 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.police1.com/law-enforcement-directory/search/page-5/> (resource type: document)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.police1.com/law-enforcement-directory/search/page-5/>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Rokkitt/font/rokkitt-v19-latin-600.woff2?v=2> (resource type: font)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-regular.woff2?v=2> (resource type: font)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-italic.woff2?v=2> (resource type: font)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-700.woff2?v=2> (resource type: font)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-regular.woff2?v=2> (resource type: font)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-500.woff2?v=2> (resource type: font)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/performance.js> (resource type: script)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css> (resource type: stylesheet)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://js.sentry-cdn.com/ca0147b59f9f46d9bac27e7727ef0ca6.min.js> (resource type: script)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://browser.sentry-cdn.com/5.13.2/dedupe.min.js> (resource type: script)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head-sync-noncritical.js> (resource type: script)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Rokkitt/font/rokkitt-v19-latin-600.woff2?v=2>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-regular.woff2?v=2>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-italic.woff2?v=2>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/dfp.js> (resource type: script)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-regular.woff2?v=2>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo-white-lexipol.svg> (resource type: image)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo.svg> (resource type: image)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Montserrat/font/montserrat-v14-latin-500.woff2?v=2>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/latest/base/fonts/Open%20Sans/font/open-sans-v17-latin-700.woff2?v=2>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/performance.js>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://browser.sentry-cdn.com/5.13.2/dedupe.min.js>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head-sync-noncritical.js>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://js.sentry-cdn.com/ca0147b59f9f46d9bac27e7727ef0ca6.min.js>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.google-analytics.com/collect> (resource type: xhr)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <HEAD https://googleads.g.doubleclick.net/pagead/id> (resource type: fetch)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo.svg>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/cub-widget.0.30.x.js> (resource type: script)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/images/logo/logo-white-lexipol.svg>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head.js> (resource type: script)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/dfp.js>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/search.js> (resource type: script)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://browser.sentry-cdn.com/5.30.0/bundle.min.js> (resource type: script)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://cross-frontend.cdn.lexipol.com/static/1007/policeone/fonts/fontello/font/fontello.woff2> (resource type: font, referrer: https://cross-frontend.cdn.lexipol.com/static/1007/policeone/css/base.css)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.google-analytics.com/collect>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/head.js>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/cub-widget.0.30.x.js>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/js/search.js>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <302 https://googleads.g.doubleclick.net/pagead/id> (location: https://googleads.g.doubleclick.net/pagead/id?slf_rd=1)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <HEAD https://googleads.g.doubleclick.net/pagead/id?slf_rd=1> (resource type: fetch)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://browser.sentry-cdn.com/5.30.0/bundle.min.js>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://cross-frontend.cdn.lexipol.com/static/1007/policeone/fonts/fontello/font/fontello.woff2>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://googleads.g.doubleclick.net/pagead/id?slf_rd=1>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://www.police1.com/stats?js=1&ga=1&ads_request=1&head=1&sentry=1&head_sync=1&sentry_config=1&ads_script=1> (resource type: xhr, referrer: https://www.police1.com/law-enforcement-directory/search/page-5/)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-5%2F&cub_xdm_c=cub32084&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq> (resource type: document)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/static/css/FontAwesome.css> (resource type: stylesheet)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://www.police1.com/stats?js=1&ga=1&ads_request=1&head=1&sentry=1&head_sync=1&sentry_config=1&ads_script=1>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/static/css/FontAwesome.css>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <POST https://go.lexipol.com/api/impressions/> (resource type: ping)
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-5%2F&cub_xdm_c=cub32084&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://go.lexipol.com/api/impressions/>
+2023-11-14 10:43:44 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/v1/sites/?domain=www.police1.com&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-5%2F> (resource type: xhr, referrer: https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-5%2F&cub_xdm_c=cub32084&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq)
+2023-11-14 10:43:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/search/page-5/> (referer: https://www.police1.com/law-enforcement-directory/search/page-4/) ['playwright']
+2023-11-14 10:43:45 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://id.lexipol.com/v1/sites/?domain=www.police1.com&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-5%2F>
+2023-11-14 10:43:45 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/v1/sites/?domain=%7Breferer%7D&expand=mailinglists__mailinglist%2Cvendor_lead_form%2Csiteplans__plan__product%2Csitebenefits__benefit%2Csso_settings&xdm=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-5%2F> (resource type: xhr, referrer: https://id.lexipol.com/static/channel.html?cub_xdm_e=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-5%2F&cub_xdm_c=cub32084&cub_xdm_a=pk_5oWZvB1GVwxWcbmGq)
+2023-11-14 10:43:45 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://lid.cdn.lexipol.com/static/vendor/iubenda/ccpa/stub.js> (resource type: script)
+2023-11-14 10:43:45 [scrapy-playwright] DEBUG: [Context=default] Request: <GET https://id.lexipol.com/cs/iubenda_cs.js?referer=https%3A%2F%2Fwww.police1.com%2Flaw-enforcement-directory%2Fsearch%2Fpage-5%2F> (resource type: script)
+2023-11-14 10:43:45 [scrapy-playwright] DEBUG: [Context=default] Response: <200 https://lid.cdn.lexipol.com/static/vendor/iubenda/ccpa/stub.js>
+2023-11-14 10:43:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/red-boiling-springs-police-dept-red-boiling-springs-TN-ef9f918ffd773a02/> (referer: https://www.police1.com/law-enforcement-directory/search/page-4/)
+2023-11-14 10:43:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/red-boiling-springs-police-dept-red-boiling-springs-TN-ef9f918ffd773a02/>
+{'address_1': '361 Lafayette Rd',
+ 'address_2': 'P.O. Box 190',
+ 'city': 'Red Boiling Springs',
+ 'country': 'United States',
+ 'county': 'Macon',
+ 'department_name': 'Red Boiling Springs Police Dept',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/red-boiling-springs-police-dept-red-boiling-springs-TN-ef9f918ffd773a02/',
+ 'fax_': '(615)-699-2961',
+ 'number_of_officers': 5,
+ 'phone_': '(615)-699-2012',
+ 'population_served': 1200,
+ 'state': 'Tennessee',
+ 'type': 'Police Departments',
+ 'website': 'http://www.maconcountytn.gov/community/city_of_red_boiling_springs.php',
+ 'zip_code': '37150'}
+2023-11-14 10:43:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/louisville-airport-police-louisville-KY-4ea192c386958114/> (referer: https://www.police1.com/law-enforcement-directory/search/page-4/)
+2023-11-14 10:43:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/louisville-airport-police-louisville-KY-4ea192c386958114/>
+{'address_1': '700 Administration Drive',
+ 'city': 'Louisville',
+ 'country': 'United States',
+ 'county': 'Jefferson',
+ 'department_name': 'Louisville Airport Police',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/louisville-airport-police-louisville-KY-4ea192c386958114/',
+ 'number_of_officers': 45,
+ 'phone_': '(502)-380-8257',
+ 'state': 'Kentucky',
+ 'type': 'Police Departments',
+ 'website': 'http://www.flylouisville.com',
+ 'zip_code': '40209'}
+2023-11-14 10:43:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/horseshoe-bay-police-department-horseshoe-bay-TX-WXDHmsGUD6wbsQOC/> (referer: https://www.police1.com/law-enforcement-directory/search/page-4/)
+2023-11-14 10:43:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/horseshoe-bay-police-department-horseshoe-bay-TX-WXDHmsGUD6wbsQOC/>
+{'address_1': 'POB 7765',
+ 'city': 'Horseshoe Bay',
+ 'country': 'United States',
+ 'county': 'Llano',
+ 'department_name': 'Horseshoe Bay Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/horseshoe-bay-police-department-horseshoe-bay-TX-WXDHmsGUD6wbsQOC/',
+ 'fax_': '(830)-598-4123',
+ 'number_of_officers': 19,
+ 'phone_': '(830)-598-2633',
+ 'population_served': 7000,
+ 'state': 'Texas',
+ 'type': 'Police Departments',
+ 'website': 'https://www.horseshoe-bay-tx.gov/227/Police-Department',
+ 'zip_code': '78657'}
+2023-11-14 10:43:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/ingram-police-department-ingram-TX-745b6b5e752845f0/> (referer: https://www.police1.com/law-enforcement-directory/search/page-4/)
+2023-11-14 10:43:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/ingram-police-department-ingram-TX-745b6b5e752845f0/>
+{'address_1': '226 Hwy 39',
+ 'city': 'Ingram',
+ 'country': 'United States',
+ 'county': 'Kerr',
+ 'department_name': 'Ingram Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/ingram-police-department-ingram-TX-745b6b5e752845f0/',
+ 'fax_': '(830)-367-3251',
+ 'number_of_officers': 6,
+ 'phone_': '(830)-367-2636',
+ 'population_served': 2000,
+ 'state': 'Texas',
+ 'type': 'Police Departments',
+ 'website': 'http://www.ingrampolice.org/',
+ 'zip_code': '78025'}
+2023-11-14 10:44:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/talty-police-department-talty-TX-YLSvVv1NnvFqlkAR/> (referer: https://www.police1.com/law-enforcement-directory/search/page-4/)
+2023-11-14 10:44:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/talty-police-department-talty-TX-YLSvVv1NnvFqlkAR/>
+{'address_1': '9550 Helms Trail (#500)',
+ 'city': 'Talty',
+ 'country': 'United States',
+ 'county': 'Kaufman',
+ 'department_name': 'Talty Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/talty-police-department-talty-TX-YLSvVv1NnvFqlkAR/',
+ 'number_of_officers': 6,
+ 'phone_': '(972)-552-9592',
+ 'population_served': 2500,
+ 'state': 'Texas',
+ 'type': 'Police Departments',
+ 'website': 'http://www.taltytexas.com/',
+ 'zip_code': '75126'}
+2023-11-14 10:44:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/sheriffs-departments/delaware-county-sheriffs-office-delaware-OH-f0f065e8742bab03/> (referer: https://www.police1.com/law-enforcement-directory/search/page-4/)
+2023-11-14 10:44:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/sheriffs-departments/delaware-county-sheriffs-office-delaware-OH-f0f065e8742bab03/>
+{'address_1': '844 US 42 N',
+ 'city': 'Delaware',
+ 'country': 'United States',
+ 'county': 'Delaware',
+ 'department_name': "Delaware County Sheriff's Office",
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/sheriffs-departments/delaware-county-sheriffs-office-delaware-OH-f0f065e8742bab03/',
+ 'fax_': '(740)-833-2799',
+ 'number_of_officers': None,
+ 'phone_': '(740)-833-2800',
+ 'population_served': 193000,
+ 'state': 'Ohio',
+ 'type': 'Sheriffs Departments',
+ 'website': 'http://www.delawarecountysheriff.com/',
+ 'zip_code': '43015'}
+2023-11-14 10:44:04 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:44:05 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/stats/ HTTP/1.1" 200 108
+2023-11-14 10:44:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/bull-shoals-pd-bull-shoals-AR-ZRbRFLgk8km4T2bp/> (referer: https://www.police1.com/law-enforcement-directory/search/page-4/)
+2023-11-14 10:44:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/bull-shoals-pd-bull-shoals-AR-ZRbRFLgk8km4T2bp/>
+{'address_1': 'P.O. Box 390',
+ 'address_2': '706 C.S. Woods Blvd.',
+ 'city': 'Bull Shoals',
+ 'country': 'United States',
+ 'county': 'Arkansas',
+ 'department_name': 'Bull Shoals PD',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/bull-shoals-pd-bull-shoals-AR-ZRbRFLgk8km4T2bp/',
+ 'fax_': '(870)-445-4948',
+ 'number_of_officers': 6,
+ 'phone_': '(870)-445-4775',
+ 'population_served': 2000,
+ 'state': 'Arkansas',
+ 'type': 'Police Departments',
+ 'website': 'http://www.cityofbullshoals.org/',
+ 'zip_code': '72619'}
+2023-11-14 10:44:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/hartford-township-police-department-hartford-WI-q0cvCp3cGYjhzvWE/> (referer: https://www.police1.com/law-enforcement-directory/search/page-4/)
+2023-11-14 10:44:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/hartford-township-police-department-hartford-WI-q0cvCp3cGYjhzvWE/>
+{'address_1': '3360 County Highway K',
+ 'city': 'Hartford',
+ 'country': 'United States',
+ 'county': 'WI',
+ 'department_name': 'Hartford Township Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/hartford-township-police-department-hartford-WI-q0cvCp3cGYjhzvWE/',
+ 'fax_': '(262)-673-7066',
+ 'number_of_officers': 8,
+ 'phone_': None,
+ 'population_served': 3989,
+ 'state': 'Wisconsin',
+ 'type': 'Police Departments',
+ 'website': 'http://www.tn.hartford.wi.gov/localgov_departments_details.asp?deptid=580&locid=182',
+ 'zip_code': '53027'}
+2023-11-14 10:44:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/mansfield-township-police-department-columbus-NJ-85993727875591af/> (referer: https://www.police1.com/law-enforcement-directory/search/page-4/)
+2023-11-14 10:44:15 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/mansfield-township-police-department-columbus-NJ-85993727875591af/>
+{'address_1': '3135 Route 206',
+ 'address_2': 'Suite 3',
+ 'city': 'Columbus',
+ 'country': 'United States',
+ 'county': 'Burlington',
+ 'department_name': 'Mansfield Township Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/mansfield-township-police-department-columbus-NJ-85993727875591af/',
+ 'fax_': '(609)-298-6625',
+ 'number_of_officers': 15,
+ 'phone_': '(609)-298-4411',
+ 'population_served': 8500,
+ 'state': 'New Jersey',
+ 'type': 'Police Departments',
+ 'website': 'http://www.mansfieldpd.org',
+ 'zip_code': '08022'}
+2023-11-14 10:44:19 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/alamogordo-police-department-alamogordo-NM-fee8ff7afc5fcaf2/> (referer: https://www.police1.com/law-enforcement-directory/search/page-4/)
+2023-11-14 10:44:19 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/alamogordo-police-department-alamogordo-NM-fee8ff7afc5fcaf2/>
+{'address_1': '700 Virginia Avenue',
+ 'city': 'Alamogordo',
+ 'country': 'United States',
+ 'county': 'Otero',
+ 'department_name': 'Alamogordo Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/alamogordo-police-department-alamogordo-NM-fee8ff7afc5fcaf2/',
+ 'fax_': '(575)-439-4320',
+ 'number_of_officers': 55,
+ 'phone_': '(575)-439-4300',
+ 'population_served': 32000,
+ 'state': 'New Mexico',
+ 'type': 'Police Departments',
+ 'website': 'http://ci.alamogordo.nm.us/coa/Police_Department.htm',
+ 'zip_code': '88310-6759'}
+2023-11-14 10:44:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/sheriffs-departments/acadia-parish-sheriffs-office-crowley-LA-cbvUPuEpLmzr2qmQ/> (referer: https://www.police1.com/law-enforcement-directory/search/page-4/)
+2023-11-14 10:44:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/sheriffs-departments/acadia-parish-sheriffs-office-crowley-LA-cbvUPuEpLmzr2qmQ/>
+{'address_1': '1037 Capitol Ave.',
+ 'city': 'Crowley',
+ 'country': 'United States',
+ 'county': 'Acadia',
+ 'department_name': "Acadia Parish Sheriff's Office",
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/sheriffs-departments/acadia-parish-sheriffs-office-crowley-LA-cbvUPuEpLmzr2qmQ/',
+ 'number_of_officers': 150,
+ 'phone_': '(337)-788-8700',
+ 'population_served': 62500,
+ 'state': 'Louisiana',
+ 'type': 'Sheriffs Departments',
+ 'website': 'http://www.apso.org',
+ 'zip_code': '70526'}
+2023-11-14 10:44:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/poland-township-police-poland-OH-ade31ba191e4d850/> (referer: https://www.police1.com/law-enforcement-directory/search/page-4/)
+2023-11-14 10:44:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/poland-township-police-poland-OH-ade31ba191e4d850/>
+{'address_1': '3339 Dobbins Road',
+ 'city': 'Poland',
+ 'country': 'United States',
+ 'county': 'Mahoning',
+ 'department_name': 'Poland Township Police',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/poland-township-police-poland-OH-ade31ba191e4d850/',
+ 'number_of_officers': 18,
+ 'phone_': '(330)-757-1549',
+ 'population_served': 14960,
+ 'state': 'Ohio',
+ 'type': 'Police Departments',
+ 'website': 'https://polandtownship.com/',
+ 'zip_code': '44514'}
+2023-11-14 10:44:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.police1.com/law-enforcement-directory/police-departments/dallas-schools-police-department-dallas-TX-8bhyucnsHjdFYY46/> (referer: https://www.police1.com/law-enforcement-directory/search/page-4/)
+2023-11-14 10:44:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.police1.com/law-enforcement-directory/police-departments/dallas-schools-police-department-dallas-TX-8bhyucnsHjdFYY46/>
+{'address_1': '2500 S. Ervay St.',
+ 'city': 'Dallas',
+ 'country': 'United States',
+ 'county': 'Dallas',
+ 'department_name': 'Dallas Schools Police Department',
+ 'directory_url': 'https://www.police1.com/law-enforcement-directory/police-departments/dallas-schools-police-department-dallas-TX-8bhyucnsHjdFYY46/',
+ 'number_of_officers': 125,
+ 'phone_': '(972)-749-2300',
+ 'population_served': 158000,
+ 'state': 'Texas',
+ 'type': 'Police Departments',
+ 'website': 'https://www.dallasisd.org/pd',
+ 'zip_code': '75215'}
+2023-11-14 10:44:33 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2023-11-14 10:44:33 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2023-11-14 10:44:33 [scrapy-playwright] DEBUG: Browser context closed: 'default' (persistent=False, remote=False)
+2023-11-14 10:44:34 [scrapy.extensions.logstats] INFO: Crawled 89 pages (at 16 pages/min), scraped 83 items (at 15 items/min)
+2023-11-14 10:44:34 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): api.scrapeops.io:443
+2023-11-14 10:44:35 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2023-11-14 10:44:35 [urllib3.connectionpool] DEBUG: https://api.scrapeops.io:443 "POST /api/v1/stats/ HTTP/1.1" 200 108
