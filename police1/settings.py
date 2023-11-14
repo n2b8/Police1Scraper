@@ -66,6 +66,8 @@ ITEM_PIPELINES = {
     "police1.pipelines.DepartmentNameFormattingPipeline": 300,
     "police1.pipelines.PhoneNumberFormattingPipeline": 301,
     "police1.pipelines.FaxNumberFormattingPipeline": 302,
+    "police1.pipelines.ConvertOfficersToIntegerPipeline": 303,
+    "police1.pipelines.ProcessPopulationServedPipeline": 304,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
