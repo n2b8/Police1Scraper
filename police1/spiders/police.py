@@ -71,45 +71,71 @@ class PoliceSpider(scrapy.Spider):
     #         page = response.meta["playwright_page"]
     #         await page.close()
 
+    # async def parse_agency(self, response):
+    #     item = AgencyItem()
+    #
+    #     item['department_name'] = response.css('h1.Article-p.Article-p--heading::text').get()
+    #     # Initialize all fields to None
+    #     for field in item.fields:
+    #         item[field] = None
+    #
+    #     # Define a mapping of labels to item fields
+    #     field_mapping = {
+    #         'Address 1': 'address1',
+    #         'Address 2': 'address2',
+    #         'City': 'city',
+    #         'State': 'state',
+    #         'Zip Code': 'zip_code',
+    #         'County': 'county',
+    #         'Phone #': 'phone_number',
+    #         'Fax #': 'fax_number',
+    #         'Website': 'website',
+    #         'Type': 'type',
+    #         'Population Served': 'population_served',
+    #         'Number of Officers': 'number_of_officers',
+    #         # Add more mappings as needed
+    #     }
+    #
+    #     # Extract label-value pairs
+    #     labels = response.css('dt.DefList-term::text').getall()
+    #     values = response.css('dd.DefList-description::text').getall()
+    #
+    #     for label, value in zip(labels, values):
+    #         field_name = field_mapping.get(label.strip(':'))
+    #         if field_name:
+    #             item[field_name] = value.strip()
+    #
+    #     item['directory_url'] = response.url
+    #
+    #     yield item
+    #
+    #     # Close Playwright page if needed
+    #     if response.meta.get("playwright_page"):
+    #         page = response.meta["playwright_page"]
+    #         await page.close()
+
     async def parse_agency(self, response):
         item = AgencyItem()
 
-        item['department_name'] = response.css('h1.Article-p.Article-p--heading::text').get()
-        # Initialize all fields to None
-        for field in item.fields:
-            item[field] = None
+        # Extracting the department's name
+        full_department_name = response.css('h1.Article-p.Article-p--heading::text').get()
+        department_name = full_department_name.split(' - ')[0] if full_department_name else ''
+        item['department_name'] = department_name
 
-        # Define a mapping of labels to item fields
-        field_mapping = {
-            'Address 1': 'address1',
-            'Address 2': 'address2',
-            'City': 'city',
-            'State': 'state',
-            'Zip Code': 'zip_code',
-            'County': 'county',
-            'Phone #': 'phone_number',
-            'Fax #': 'fax_number',
-            'Website': 'website',
-            'Type': 'type',
-            'Population Served': 'population_served',
-            'Number of Officers': 'number_of_officers',
-            # Add more mappings as needed
-        }
+        # Extracting details from the definition list
+        def_list = response.css('.DefList')
+        for dl in def_list:
+            dt_elements = dl.css('dt::text').getall()
+            dd_elements = dl.css('dd::text, dd a::attr(href)').getall()
 
-        # Extract label-value pairs
-        labels = response.css('dt.DefList-term::text').getall()
-        values = response.css('dd.DefList-description::text').getall()
-
-        for label, value in zip(labels, values):
-            field_name = field_mapping.get(label.strip(':'))
-            if field_name:
-                item[field_name] = value.strip()
-
-        item['directory_url'] = response.url
+            for dt, dd in zip(dt_elements, dd_elements):
+                key = dt.replace('#', '').strip(':').lower().replace(' ', '_')
+                value = dd.strip()
+                item[key] = value
 
         yield item
 
-        # Close Playwright page if needed
+        # Close the playwright page if needed
         if response.meta.get("playwright_page"):
             page = response.meta["playwright_page"]
             await page.close()
