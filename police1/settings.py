@@ -62,9 +62,11 @@ CONCURRENT_REQUESTS_PER_DOMAIN = 16
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "police1.pipelines.Police1Pipeline": 300,
-#}
+ITEM_PIPELINES = {
+    "police1.pipelines.DepartmentNameFormattingPipeline": 300,
+    "police1.pipelines.PhoneNumberFormattingPipeline": 301,
+    "police1.pipelines.FaxNumberFormattingPipeline": 302,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
