@@ -3,7 +3,7 @@ from typing import Iterable
 import scrapy
 from scrapy import Request
 from scrapy_playwright.page import PageMethod
-
+from police1.items import AgencyItem
 
 class PoliceSpider(scrapy.Spider):
     name = "police"
@@ -46,32 +46,70 @@ class PoliceSpider(scrapy.Spider):
         else:
             print("Next button was not pressed")
 
+    # async def parse_agency(self, response):
+    #     item = AgencyItem()
+    #     # Extracting the department's name
+    #     full_department_name = response.css('h1.Article-p.Article-p--heading::text').get()
+    #     item['department_name'] = full_department_name.split(' - ')[0] if full_department_name else ''
+    #     item['country'] = response.css('dd.DefList-description::text')[0].get()
+    #     item['address'] = response.css('dd.DefList-description::text')[1].get()
+    #     item['city'] = response.css('dd.DefList-description::text')[2].get()
+    #     item['state'] = response.css('dd.DefList-description::text')[3].get()
+    #     item['zip_code'] = response.css('dd.DefList-description::text')[4].get()
+    #     item['county'] = response.css('dd.DefList-description::text')[5].get()
+    #     item['phone_number'] = response.css('dd.DefList-description::text')[6].get()
+    #     item['website'] = response.css('a.u-textClip::attr(href)').get()
+    #     item['type'] = response.css('dd.DefList-description::text')[9].get()
+    #     item['population_served'] = response.css('dd.DefList-description::text')[10].get()
+    #     item['number_of_officers'] = response.css('dd.DefList-description::text')[11].get()
+    #     item['directory_url'] = response.url
+    #
+    #     yield item
+    #
+    #     # Remember to handle the Playwright page if needed
+    #     if response.meta.get("playwright_page"):
+    #         page = response.meta["playwright_page"]
+    #         await page.close()
+
     async def parse_agency(self, response):
-        # Extracting the department's name
-        full_department_name = response.css('h1.Article-p.Article-p--heading::text').get()
-        # Splitting the name and keeping only the first part
-        department_name = full_department_name.split(' - ')[0] if full_department_name else ''
+        item = AgencyItem()
 
-        # Extracting details from the definition list
-        details = {'Department Name': department_name}
-        dt_elements = response.css('div.DefList dl dt::text').getall()
-        dd_elements = response.css('div.DefList dl dd::text').getall()
+        item['department_name'] = response.css('h1.Article-p.Article-p--heading::text').get()
+        # Initialize all fields to None
+        for field in item.fields:
+            item[field] = None
 
-        for dt, dd in zip(dt_elements, dd_elements):
-            details[dt.strip(':')] = dd.strip()
+        # Define a mapping of labels to item fields
+        field_mapping = {
+            'Address 1': 'address1',
+            'Address 2': 'address2',
+            'City': 'city',
+            'State': 'state',
+            'Zip Code': 'zip_code',
+            'County': 'county',
+            'Phone #': 'phone_number',
+            'Fax #': 'fax_number',
+            'Website': 'website',
+            'Type': 'type',
+            'Population Served': 'population_served',
+            'Number of Officers': 'number_of_officers',
+            # Add more mappings as needed
+        }
 
-        # Handling the website separately since it's an anchor tag
-        website_url = response.css('div.DefList dl dd a::attr(href)').get()
+        # Extract label-value pairs
+        labels = response.css('dt.DefList-term::text').getall()
+        values = response.css('dd.DefList-description::text').getall()
 
-        # Adding website to the details
-        if website_url:
-            details['Website'] = website_url
+        for label, value in zip(labels, values):
+            field_name = field_mapping.get(label.strip(':'))
+            if field_name:
+                item[field_name] = value.strip()
 
-        # Your code to process the details
-        # Example: yield details
-        yield details
+        item['directory_url'] = response.url
 
-        # Remember to handle the Playwright page if needed
+        yield item
+
+        # Close Playwright page if needed
         if response.meta.get("playwright_page"):
             page = response.meta["playwright_page"]
             await page.close()
