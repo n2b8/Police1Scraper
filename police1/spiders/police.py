@@ -63,6 +63,16 @@ class PoliceSpider(scrapy.Spider):
                 value = dd.strip()
                 item[key] = value
 
+        # Extracting website URL
+        website_url_selector = response.css('dl.DefList dd a::attr(href)')
+        website_url = website_url_selector.get()
+
+        if website_url:
+            item['website'] = website_url.strip()
+
+        # Extracting the directory url
+        item['directory_url'] = response.url
+
         yield item
 
         # Close the playwright page if needed
