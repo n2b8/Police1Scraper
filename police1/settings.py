@@ -23,8 +23,10 @@ COCKROACHDB_DB = os.environ['COCKROACHDB_DB']
 COCKROACHDB_PORT = os.environ['COCKROACHDB_PORT']
 COCKROACHDB_CLUSTER = os.environ['COCKROACHDB_CLUSTER']
 COCKROACHDB_USER = os.environ['COCKROACHDB_USER']
-DB_URI = "postgresql://" + COCKROACHDB_USER + ":" + COCKROACHDB_PW + "@" + COCKROACHDB_CLUSTER + ".cockroachlabs.cloud:" + COCKROACHDB_PORT + "/" + COCKROACHDB_DB + ("?sslmode=verify-full"
-                                                                                                                                                                      "")
+DB_URI = "postgresql://" + COCKROACHDB_USER + ":" + COCKROACHDB_PW + "@" + COCKROACHDB_CLUSTER + ".cockroachlabs.cloud:" + COCKROACHDB_PORT + "/" + COCKROACHDB_DB + "?sslmode=verify-full"
+
+JOBDIR = 'crawls/spider-1'
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "police1 (+http://www.yourdomain.com)"
 
